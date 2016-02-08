@@ -27,9 +27,10 @@
         [MaxLength(40)]
         public string LastName { get; set; }
         
+        [Required]
+        [Range(0, 120)]
         public short Age { get; set; }
         
-
         public virtual ICollection<Event> Favorites
         {
             get { return this.favorites; }

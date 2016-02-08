@@ -24,6 +24,11 @@
         [MaxLength(40)]
         public string Name { get; set; }
         
+        [Required]
+        [MinLength(10)]
+        [MaxLength(300)]
+        public string Address { get; set; }
+
         public virtual ICollection<Volunteer> Members
         {
             get { return this.members; }
