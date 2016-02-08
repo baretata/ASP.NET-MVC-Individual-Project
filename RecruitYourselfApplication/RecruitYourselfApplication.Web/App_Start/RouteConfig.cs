@@ -1,17 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Routing;
-
-namespace RecruitYourselfApplication.Web
+﻿namespace RecruitYourselfApplication.Web
 {
+    using System.Web.Mvc;
+    using System.Web.Routing;
+
     public class RouteConfig
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+
+            routes.MapRoute(
+                name: "Register",
+                url: "Account/Register/{type}",
+                defaults: new { controller = "Account", action = "Register" });
 
             routes.MapRoute(
                 name: "Default",
