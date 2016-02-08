@@ -3,6 +3,7 @@ namespace RecruitYourselfApplication.Data.Migrations
     using System;
     using System.Collections.Generic;
     using System.Data.Entity.Migrations;
+    using System.Linq;
     using Models;
 
     internal sealed class Configuration : DbMigrationsConfiguration<RecruitYourselfDbContext>
@@ -17,9 +18,9 @@ namespace RecruitYourselfApplication.Data.Migrations
 
         protected override void Seed(RecruitYourselfDbContext context)
         {
-            if (context)
+            if (context.Categories.Any())
             {
-
+                return;
             }
 
             var categories = new List<Category>();
