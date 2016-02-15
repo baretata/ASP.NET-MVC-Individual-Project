@@ -188,6 +188,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\ApplicationRoleManager.cs" />
     <Compile Include="App_Start\ApplicationSignInManager.cs" />
     <Compile Include="App_Start\ApplicationUserManager.cs" />
     <Compile Include="App_Start\AutofacConfig.cs" />
@@ -323,6 +324,10 @@
     </AdditionalFiles>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\RecruitYourself.Common.Constants\RecruitYourself.Common.Constants.csproj">
+      <Project>{e2b46882-f699-4914-9b3e-e74913fc85c7}</Project>
+      <Name>RecruitYourself.Common.Constants</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\RecruitYourself.Data.Common\RecruitYourself.Data.Common.csproj">
       <Project>{edfe3c57-ef5b-4636-9ecc-d0baca6b6379}</Project>
       <Name>RecruitYourself.Data.Common</Name>

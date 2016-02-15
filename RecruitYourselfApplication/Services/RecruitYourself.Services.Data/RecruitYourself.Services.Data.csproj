@@ -51,15 +51,15 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Data\RecruitYourself.Data.Common\RecruitYourself.Data.Common.csproj">
       <Project>{edfe3c57-ef5b-4636-9ecc-d0baca6b6379}</Project>
-      <Name>MvcTemplate.Data.Common</Name>
+      <Name>RecruitYourself.Data.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Data\RecruitYourself.Data.Models\RecruitYourself.Data.Models.csproj">
       <Project>{048df115-fad9-4bd4-9ba0-d99dfd32a2b2}</Project>
-      <Name>MvcTemplate.Data.Models</Name>
+      <Name>RecruitYourself.Data.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\RecruitYourself.Services.Web\RecruitYourself.Services.Web.csproj">
       <Project>{deab17a2-58c1-448c-8a66-d49c3af7fc6c}</Project>
-      <Name>MvcTemplate.Services.Web</Name>
+      <Name>RecruitYourself.Services.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

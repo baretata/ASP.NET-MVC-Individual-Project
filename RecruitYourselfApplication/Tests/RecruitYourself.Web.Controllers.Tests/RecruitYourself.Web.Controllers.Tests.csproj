@@ -93,27 +93,27 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Data\RecruitYourself.Data.Common\RecruitYourself.Data.Common.csproj">
       <Project>{edfe3c57-ef5b-4636-9ecc-d0baca6b6379}</Project>
-      <Name>MvcTemplate.Data.Common</Name>
+      <Name>RecruitYourself.Data.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Data\RecruitYourself.Data.Models\RecruitYourself.Data.Models.csproj">
       <Project>{048df115-fad9-4bd4-9ba0-d99dfd32a2b2}</Project>
-      <Name>MvcTemplate.Data.Models</Name>
+      <Name>RecruitYourself.Data.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Services\RecruitYourself.Services.Data\RecruitYourself.Services.Data.csproj">
       <Project>{90fe4c4d-122a-406d-8a40-79c561fb8184}</Project>
-      <Name>MvcTemplate.Services.Data</Name>
+      <Name>RecruitYourself.Services.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Services\RecruitYourself.Services.Web\RecruitYourself.Services.Web.csproj">
       <Project>{deab17a2-58c1-448c-8a66-d49c3af7fc6c}</Project>
-      <Name>MvcTemplate.Services.Web</Name>
+      <Name>RecruitYourself.Services.Web</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Web\RecruitYourself.Web.Infrastructure\RecruitYourself.Web.Infrastructure.csproj">
       <Project>{6813dc53-5eee-4507-8604-5301ee51a0d3}</Project>
-      <Name>MvcTemplate.Web.Infrastructure</Name>
+      <Name>RecruitYourself.Web.Infrastructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Web\RecruitYourself.Web\RecruitYourself.Web.csproj">
       <Project>{67cc40ff-4933-4f83-810e-357e6bc8b973}</Project>
-      <Name>MvcTemplate.Web</Name>
+      <Name>RecruitYourself.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

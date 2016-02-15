@@ -4,9 +4,10 @@
     using System.Collections.Generic;
     using System.Data.Entity.Migrations;
     using System.Linq;
-
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using Models;
-
+    using RecruitYourself.Common.Constants;
     public sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
     {
         private static Random randomGenerator = new Random();
@@ -16,9 +17,33 @@
             this.AutomaticMigrationsEnabled = true;
             this.AutomaticMigrationDataLossAllowed = true;
         }
-
+        
         protected override void Seed(ApplicationDbContext context)
         {
+            if (!context.Roles.Any(r => r.Name == RoleConstants.AdminRoleConstant))
+            {
+                var store = new RoleStore<IdentityRole>(context);
+                var manager = new RoleManager<IdentityRole>(store);
+                var role = new IdentityRole { Name = RoleConstants.AdminRoleConstant };
+
+                manager.Create(role);
+            }
+
+            if (!context.Users.Any(u => u.UserName == "admin"))
+            {
+                var store = new UserStore<User>(context);
+                var manager = new UserManager<User>(store);
+                var user = new User
+                {
+                    UserName = "admin",
+                    Description = "Administrator of the application.",
+                    CreatedOn = DateTime.UtcNow,
+                };
+
+                manager.Create(user, "admin123");
+                manager.AddToRole(user.Id, RoleConstants.AdminRoleConstant);
+            }
+
             if (context.Categories.Any())
             {
                 return;
