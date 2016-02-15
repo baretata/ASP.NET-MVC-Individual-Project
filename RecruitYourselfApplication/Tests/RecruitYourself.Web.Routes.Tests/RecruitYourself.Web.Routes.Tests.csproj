@@ -105,7 +105,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Web\RecruitYourself.Web\RecruitYourself.Web.csproj">
       <Project>{67cc40ff-4933-4f83-810e-357e6bc8b973}</Project>
-      <Name>MvcTemplate.Web</Name>
+      <Name>RecruitYourself.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

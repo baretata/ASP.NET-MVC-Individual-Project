@@ -5,8 +5,9 @@
     using System.Threading.Tasks;
     using System.Web;
     using System.Web.Mvc;
-
+    using Common.Constants;
     using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
 
@@ -23,14 +24,20 @@
 
         private ApplicationUserManager userManager;
 
+        private ApplicationRoleManager roleManager;
+
         public AccountController()
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
+        public AccountController(
+            ApplicationUserManager userManager,
+            ApplicationSignInManager signInManager,
+            ApplicationRoleManager roleManager)
         {
             this.UserManager = userManager;
             this.SignInManager = signInManager;
+            this.RoleManager = roleManager;
         }
 
         public ApplicationSignInManager SignInManager
@@ -56,6 +63,19 @@
             private set
             {
                 this.userManager = value;
+            }
+        }
+
+        public ApplicationRoleManager RoleManager
+        {
+            get
+            {
+                return this.roleManager ?? this.HttpContext.GetOwinContext().Get<ApplicationRoleManager>();
+            }
+
+            private set
+            {
+                this.roleManager = value;
             }
         }
 
@@ -179,13 +199,21 @@
                     FirstName = model.FirstName,
                     LastName = model.LastName,
                     Age = model.Age,
-                    CreatedOn = DateTime.Now,
+                    CreatedOn = DateTime.UtcNow,
                     Image = model.Image
                 };
                 var result = await this.UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     await this.SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
+                    if (!this.RoleManager.RoleExists(RoleConstants.VolunteerRoleConstant))
+                    {
+                        var role = new IdentityRole { Name = RoleConstants.VolunteerRoleConstant };
+                        this.RoleManager.Create(role);
+                    }
+
+                    await this.UserManager.AddToRoleAsync(user.Id, RoleConstants.VolunteerRoleConstant);
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
@@ -217,7 +245,7 @@
                     Description = model.Description,
                     Name = model.Name,
                     Address = model.Address,
-                    CreatedOn = DateTime.Now,
+                    CreatedOn = DateTime.UtcNow,
                     Image = model.Image
                 };
 
@@ -226,6 +254,14 @@
                 if (result.Succeeded)
                 {
                     await this.SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
+                    if (!this.RoleManager.RoleExists(RoleConstants.OrganizationRoleConstant))
+                    {
+                        var role = new IdentityRole { Name = RoleConstants.OrganizationRoleConstant };
+                        this.RoleManager.Create(role);
+                    }
+
+                    await this.UserManager.AddToRoleAsync(user.Id, RoleConstants.OrganizationRoleConstant);
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link

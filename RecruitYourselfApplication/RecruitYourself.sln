@@ -35,6 +35,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecruitYourself.Web.Routes.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecruitYourself.Web.Controllers.Tests", "Tests\RecruitYourself.Web.Controllers.Tests\RecruitYourself.Web.Controllers.Tests.csproj", "{7C55353F-CB74-4E8E-B272-42DA1C9C2194}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{E40CE2C2-F83D-44AB-BDC4-8E9571179470}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecruitYourself.Common.Constants", "Common\RecruitYourself.Common.Constants\RecruitYourself.Common.Constants.csproj", "{E2B46882-F699-4914-9B3E-E74913FC85C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +89,10 @@ Global
 		{7C55353F-CB74-4E8E-B272-42DA1C9C2194}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C55353F-CB74-4E8E-B272-42DA1C9C2194}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C55353F-CB74-4E8E-B272-42DA1C9C2194}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2B46882-F699-4914-9B3E-E74913FC85C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2B46882-F699-4914-9B3E-E74913FC85C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2B46882-F699-4914-9B3E-E74913FC85C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2B46882-F699-4914-9B3E-E74913FC85C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -101,5 +109,6 @@ Global
 		{D0D962BD-363D-4A22-9DB1-53136CE8EBF4} = {0C12FAF3-85BC-43E1-ABB2-6799213942CB}
 		{C3A300EF-D136-4334-9211-466B9E699339} = {0C12FAF3-85BC-43E1-ABB2-6799213942CB}
 		{7C55353F-CB74-4E8E-B272-42DA1C9C2194} = {0C12FAF3-85BC-43E1-ABB2-6799213942CB}
+		{E2B46882-F699-4914-9B3E-E74913FC85C7} = {E40CE2C2-F83D-44AB-BDC4-8E9571179470}
 	EndGlobalSection
 EndGlobal
