@@ -3,6 +3,7 @@
     using System;
     using System.Web;
     using System.Web.Caching;
+    using Contracts;
 
     public class HttpCacheService : ICacheService
     {

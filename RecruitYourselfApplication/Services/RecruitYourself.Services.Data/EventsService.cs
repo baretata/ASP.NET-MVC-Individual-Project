@@ -3,9 +3,10 @@
     using System;
     using System.Linq;
 
+    using Contracts;
     using RecruitYourself.Data.Common.Contracts;
     using RecruitYourself.Data.Models;
-    using RecruitYourself.Services.Web;
+    using RecruitYourself.Services.Web.Contracts;
 
     public class EventsService : IEventsService
     {

@@ -1,4 +1,4 @@
-﻿namespace RecruitYourself.Services.Data
+﻿namespace RecruitYourself.Services.Data.Contracts
 {
     using System.Linq;
 

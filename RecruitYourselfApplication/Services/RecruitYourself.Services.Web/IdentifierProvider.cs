@@ -3,6 +3,8 @@
     using System;
     using System.Text;
 
+    using Contracts;
+
     public class IdentifierProvider : IIdentifierProvider
     {
         private const string Salt = ".12312313123";

@@ -1,5 +1,7 @@
 ﻿namespace RecruitYourself.Services.Web.Tests
 {
+    using Contracts;
+
     using NUnit.Framework;
 
     [TestFixture]

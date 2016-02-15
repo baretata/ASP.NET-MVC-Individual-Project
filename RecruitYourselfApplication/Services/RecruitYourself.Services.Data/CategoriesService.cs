@@ -2,6 +2,7 @@
 {
     using System.Linq;
 
+    using Contracts;
     using RecruitYourself.Data.Common.Contracts;
     using RecruitYourself.Data.Models;
 

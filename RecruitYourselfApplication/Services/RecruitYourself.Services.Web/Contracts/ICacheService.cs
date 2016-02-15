@@ -1,4 +1,4 @@
-﻿namespace RecruitYourself.Services.Web
+﻿namespace RecruitYourself.Services.Web.Contracts
 {
     using System;
 
