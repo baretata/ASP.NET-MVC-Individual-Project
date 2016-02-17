@@ -6,12 +6,12 @@
     </a>
     <ul class="dropdown-menu" role="menu">
         <li>
-            @Html.ActionLink("All Articles", "Index", "Articles", new { area = "Article" }, null)
+            @Html.ActionLink("All Articles", "Index", "AllArticles", new { area = "Article" }, null)
         </li>
         @if (this.Request.IsAuthenticated && !this.Context.User.IsInRole(RoleConstants.VolunteerRoleConstant))
-            {
+        {
             <li>
-                @Html.ActionLink("Create Article", "Register", "Account", routeValues: new { type = "Organization" }, htmlAttributes: new { id = "registerOrganizationLink" })
+                @Html.ActionLink("Create Article", "Create", "AddArticle", new { area = "Article" }, null)
             </li>
         }
     </ul>
