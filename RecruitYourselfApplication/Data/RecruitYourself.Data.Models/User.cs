@@ -1,6 +1,7 @@
 ﻿namespace RecruitYourself.Data.Models
 {
     using System;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.Security.Claims;
     using System.Threading.Tasks;
@@ -22,6 +23,7 @@
         [MaxLength(300)]
         public string Description { get; set; }
 
+        [DefaultValue("http://www.amfacilities.com/images/news/default.png")]
         public string Image { get; set; }
 
         public DateTime CreatedOn { get; set; }

@@ -8,6 +8,7 @@
     using Microsoft.AspNet.Identity.EntityFramework;
     using Models;
     using RecruitYourself.Common.Constants;
+
     public sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
     {
         private static Random randomGenerator = new Random();
@@ -17,7 +18,7 @@
             this.AutomaticMigrationsEnabled = true;
             this.AutomaticMigrationDataLossAllowed = true;
         }
-        
+
         protected override void Seed(ApplicationDbContext context)
         {
             if (!context.Roles.Any(r => r.Name == RoleConstants.AdminRoleConstant))
@@ -68,6 +69,7 @@
                 UserName = "organ",
                 Address = "Sofia, Rakovski 20",
                 Description = "Organization vision and mission description",
+                Image = "http://www.keenthemes.com/preview/metronic/theme/assets/global/plugins/jcrop/demos/demo_files/image1.jpg"
             };
 
             context.Organizations.Add(organization);
@@ -92,7 +94,7 @@
                 var article = new Article
                 {
                     Name = $"Article {i}",
-                    Content = "Article text here",
+                    Content = "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?",
                     CreatorId = organization.Id,
                     Creator = organization
                 };
@@ -111,7 +113,7 @@
                 var newEvent = new Event
                 {
                     Name = $"Event {i}",
-                    Description = "Event description insert here",
+                    Description = "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.",
                     CategoryId = currentCategory.Id,
                     Category = currentCategory,
                     StartTime = DateTime.Now.AddDays(randomGenerator.NextDouble() * 2),

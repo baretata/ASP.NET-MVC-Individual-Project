@@ -19,7 +19,7 @@
         public string Name { get; set; }
 
         [Required]
-        [MaxLength(300)]
+        [MaxLength(1000)]
         public string Content { get; set; }
 
         [ForeignKey("CreatorId")]

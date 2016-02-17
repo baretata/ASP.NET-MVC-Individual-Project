@@ -22,7 +22,7 @@
         public string Name { get; set; }
 
         [Required]
-        [MaxLength(300)]
+        [MaxLength(1000)]
         public string Description { get; set; }
 
         [Required]
