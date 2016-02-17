@@ -12,5 +12,7 @@
         IQueryable<Article> SearchBy(string searchQuery);
 
         void Add(Article model);
+
+        IQueryable<Article> GetByPage(int page, int skip, int take);
     }
 }

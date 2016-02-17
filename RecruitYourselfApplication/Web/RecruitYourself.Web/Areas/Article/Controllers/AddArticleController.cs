@@ -1,12 +1,14 @@
 ﻿namespace RecruitYourself.Web.Areas.Article.Controllers
 {
     using System.Web.Mvc;
+    using Common.Constants;
     using Data.Models;
     using Microsoft.AspNet.Identity;
     using Services.Data.Contracts;
     using ViewModels;
     using Web.Controllers;
 
+    [Authorize]
     public class AddArticleController : BaseController
     {
         private readonly IArticlesService articles;

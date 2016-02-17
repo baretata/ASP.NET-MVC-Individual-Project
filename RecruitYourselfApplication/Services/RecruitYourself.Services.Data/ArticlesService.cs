@@ -37,6 +37,11 @@
             return currentArticle;
         }
 
+        public IQueryable<Article> GetByPage(int page, int skip, int take)
+        {
+            return this.articles.All().Skip(skip).Take(take);
+        }
+
         public IQueryable<Article> SearchBy(string searchQuery)
         {
             return this.articles
