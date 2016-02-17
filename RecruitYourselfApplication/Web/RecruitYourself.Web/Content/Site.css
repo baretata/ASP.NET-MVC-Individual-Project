@@ -23,6 +23,10 @@ textarea {
     max-width: 280px;
 }
 
-.form-control {
+.registration-form .form-control {
     margin-bottom: 10px;
+}
+
+.article-header {
+    margin-bottom: 30px;
 }

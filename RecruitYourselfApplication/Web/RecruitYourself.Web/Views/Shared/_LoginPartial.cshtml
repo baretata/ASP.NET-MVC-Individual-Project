@@ -22,13 +22,13 @@ else
             </a>
             <ul class="dropdown-menu" role="menu">
                 <li>
-                    @Html.ActionLink("As Volunteer", "Register", "Account", routeValues: new { type = "Volunteer" }, htmlAttributes: new { id = "registerVolunteerLink" })
+                    @Html.ActionLink("As Volunteer", "Register", "Account", routeValues: new { area = "", type = "Volunteer" }, htmlAttributes: new { id = "registerVolunteerLink" })
                 </li>
                 <li>
-                    @Html.ActionLink("As Organization", "Register", "Account", routeValues: new { type = "Organization" }, htmlAttributes: new { id = "registerOrganizationLink" })
+                    @Html.ActionLink("As Organization", "Register", "Account", routeValues: new { area = "", type = "Organization" }, htmlAttributes: new { id = "registerOrganizationLink" })
                 </li>
             </ul>
         </li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: new { area = "" }, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }

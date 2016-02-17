@@ -14,16 +14,16 @@
         private readonly ICategoriesService categories;
 
         public HomeController(
-            IEventsService jokes,
+            IEventsService events,
             ICategoriesService jokeCategories)
         {
-            this.events = jokes;
+            this.events = events;
             this.categories = jokeCategories;
         }
 
         public ActionResult Index()
         {
-            var jokes = this.events.GetRandomJokes(3).To<EventViewModel>().ToList();
+            var jokes = this.events.GetRandomEvents(3).To<EventViewModel>().ToList();
             var categories =
                 this.Cache.Get(
                     "categories",

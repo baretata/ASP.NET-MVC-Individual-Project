@@ -104,6 +104,14 @@ hr {
     letter-spacing: 1px;
 }
 
+.article-container {
+    margin-bottom: 20px;
+}
+
+.article-container .img-responsive {
+    width: 30%;
+}
+
 .img-border {
     float: none;
     margin: 0 auto 0;
