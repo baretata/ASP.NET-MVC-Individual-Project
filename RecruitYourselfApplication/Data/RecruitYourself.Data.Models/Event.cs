@@ -6,6 +6,7 @@
     using System.ComponentModel.DataAnnotations.Schema;
 
     using Common.Models;
+    using RecruitYourself.Common.Constants;
 
     public class Event : BaseModel<int>
     {
@@ -17,12 +18,12 @@
         }
 
         [Required]
-        [MinLength(3)]
-        [MaxLength(40)]
+        [MinLength(DatabaseModelsConstants.NameMinLength)]
+        [MaxLength(DatabaseModelsConstants.NameMaxLength)]
         public string Name { get; set; }
 
         [Required]
-        [MaxLength(1000)]
+        [MaxLength(DatabaseModelsConstants.ContentMaxLength)]
         public string Description { get; set; }
 
         [Required]
@@ -35,10 +36,6 @@
         public virtual User Creator { get; set; }
 
         public string CreatorId { get; set; }
-
-        // [ForeignKey("InitiatorId")]
-        // public virtual Organization Initiator { get; set; }
-        // public string InitiatorId { get; set; }
 
         [ForeignKey("CategoryId")]
         public virtual Category Category { get; set; }

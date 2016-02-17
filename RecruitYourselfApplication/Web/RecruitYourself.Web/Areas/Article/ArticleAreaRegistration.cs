@@ -17,8 +17,7 @@
             context.MapRoute(
                 name: "Article",
                 url: "Article/{controller}/{action}/{id}",
-                defaults: new { action = "Index", id = UrlParameter.Optional }
-            );
+                defaults: new { action = "Index", id = UrlParameter.Optional });
         }
     }
 }

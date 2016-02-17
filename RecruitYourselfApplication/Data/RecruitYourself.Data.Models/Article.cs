@@ -5,6 +5,7 @@
     using System.ComponentModel.DataAnnotations.Schema;
 
     using Common.Models;
+    using RecruitYourself.Common.Constants;
 
     public class Article : BaseModel<int>
     {
@@ -14,12 +15,12 @@
         }
 
         [Required]
-        [MinLength(3)]
-        [MaxLength(40)]
+        [MinLength(DatabaseModelsConstants.NameMinLength)]
+        [MaxLength(DatabaseModelsConstants.NameMaxLength)]
         public string Name { get; set; }
 
         [Required]
-        [MaxLength(1000)]
+        [MaxLength(DatabaseModelsConstants.ContentMaxLength)]
         public string Content { get; set; }
 
         [ForeignKey("CreatorId")]

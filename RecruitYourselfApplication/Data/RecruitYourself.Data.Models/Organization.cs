@@ -2,10 +2,8 @@
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.Security.Claims;
-    using System.Threading.Tasks;
 
-    using Microsoft.AspNet.Identity;
+    using RecruitYourself.Common.Constants;
 
     public class Organization : User
     {
@@ -21,13 +19,13 @@
         }
 
         [Required]
-        [MinLength(3)]
-        [MaxLength(40)]
+        [MinLength(DatabaseModelsConstants.NameMinLength)]
+        [MaxLength(DatabaseModelsConstants.NameMaxLength)]
         public string Name { get; set; }
 
         [Required]
-        [MinLength(10)]
-        [MaxLength(300)]
+        [MinLength(DatabaseModelsConstants.NameMinLength)]
+        [MaxLength(DatabaseModelsConstants.NameMaxLength)]
         public string Address { get; set; }
 
         public virtual ICollection<Volunteer> Members
@@ -47,14 +45,5 @@
             get { return this.articles; }
             set { this.articles = value; }
         }
-
-        // public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<Organization> manager)
-        // {
-        //    // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
-        //    var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
-
-        // // Add custom user claims here
-        //    return userIdentity;
-        // }
     }
 }

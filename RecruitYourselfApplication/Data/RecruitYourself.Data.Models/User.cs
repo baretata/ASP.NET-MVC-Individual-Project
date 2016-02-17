@@ -10,20 +10,20 @@
 
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
+    using RecruitYourself.Common.Constants;
 
     public class User : IdentityUser, IAuditInfo, IDeletableEntity
     {
         [Required]
-        [MinLength(3)]
-        [MaxLength(40)]
+        [MinLength(DatabaseModelsConstants.NameMinLength)]
+        [MaxLength(DatabaseModelsConstants.NameMaxLength)]
         public override string UserName { get; set; }
 
         [Required]
-        [MinLength(10)]
-        [MaxLength(300)]
+        [MinLength(DatabaseModelsConstants.UserDescriptionMinLength)]
+        [MaxLength(DatabaseModelsConstants.UserDescriptionMaxLength)]
         public string Description { get; set; }
 
-        [DefaultValue("http://www.amfacilities.com/images/news/default.png")]
         public string Image { get; set; }
 
         public DateTime CreatedOn { get; set; }

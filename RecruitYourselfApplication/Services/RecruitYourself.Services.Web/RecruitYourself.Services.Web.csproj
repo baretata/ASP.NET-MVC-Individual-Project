@@ -62,6 +62,12 @@
       <Link>stylecop.json</Link>
     </AdditionalFiles>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\RecruitYourself.Common.Constants\RecruitYourself.Common.Constants.csproj">
+      <Project>{e2b46882-f699-4914-9b3e-e74913fc85c7}</Project>
+      <Name>RecruitYourself.Common.Constants</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
