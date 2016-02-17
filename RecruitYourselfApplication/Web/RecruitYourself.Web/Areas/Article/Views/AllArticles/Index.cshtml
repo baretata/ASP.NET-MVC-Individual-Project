@@ -12,9 +12,6 @@
                 @using (Html.BeginForm())
                 {
                     @Html.TextBox("searchQuery", null, new { @class = "search-text form-control", placeholder = "Search..." })
-                    @*<input type="text" name="searchQuery" value="@ViewBag.searchQuery" class="search-text form-control" placeholder="Search..." />*@
-                    @*Html.ActionLink("Search", "Search", "Articles", new { search = "0" }, new { @class = "btn btn-default" });*@
-
                     <input type="submit" class="btn btn-default" value="Search" />
                 }
             </div>
@@ -29,8 +26,7 @@
             <div class="article-container col-lg-12">
                 <hr>
                 <h2 class="intro-text text-center">
-                    @*<a href="@item.EncodedId">@item.Name</a>*@
-                    @Html.ActionLink(item.Name, "ById", "Articles", new { id = item.EncodedId }, null)
+                    @Html.ActionLink(item.Name, "ById", "AllArticles", new { id = item.EncodedId }, null)
                 </h2>
                 <hr>
                 <img class="img-responsive img-border img-left" src="@item.Image" alt="Article Image">
@@ -39,10 +35,5 @@
             </div>
         </div>
     </div>
-    @*<div class="col-md-6">
-            <h4>@Html.ActionLink(item.Name, "ById", "Articles")</h4>
-            <hr />
-            <
-        </div>*@
 }
 

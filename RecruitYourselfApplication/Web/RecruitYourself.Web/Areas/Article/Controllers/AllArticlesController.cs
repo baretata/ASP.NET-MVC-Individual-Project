@@ -8,15 +8,16 @@
     using Services.Data.Contracts;
     using ViewModels;
 
-    public class ArticlesController : BaseController
+    public class AllArticlesController : BaseController
     {
         private readonly IArticlesService articles;
 
-        public ArticlesController(IArticlesService articles)
+        public AllArticlesController(IArticlesService articles)
         {
             this.articles = articles;
         }
 
+        [HttpGet]
         public ActionResult Index(string searchQuery)
         {
             IList<ArticleViewModel> articleModels;
@@ -38,6 +39,7 @@
             return this.View(articleModels);
         }
 
+        [HttpGet]
         public ActionResult ById(string id)
         {
             var article = this.articles.GetById(id);

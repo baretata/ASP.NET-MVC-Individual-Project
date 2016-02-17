@@ -6,7 +6,7 @@
 
     public interface IEventsService
     {
-        IQueryable<Event> GetRandomJokes(int count);
+        IQueryable<Event> GetRandomEvents(int count);
 
         Event GetById(string id);
     }

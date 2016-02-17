@@ -202,7 +202,9 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\ViewEngineConfig.cs" />
     <Compile Include="Areas\Article\ArticleAreaRegistration.cs" />
-    <Compile Include="Areas\Article\Controllers\ArticlesController.cs" />
+    <Compile Include="Areas\Article\Controllers\AddArticleController.cs" />
+    <Compile Include="Areas\Article\Controllers\AllArticlesController.cs" />
+    <Compile Include="Areas\Article\ViewModels\ArticleInputModel.cs" />
     <Compile Include="Areas\Article\ViewModels\ArticleViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -269,8 +271,9 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Areas\Article\Views\web.config" />
     <Content Include="Areas\Article\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Article\Views\Articles\Index.cshtml" />
-    <Content Include="Areas\Article\Views\Articles\ById.cshtml" />
+    <Content Include="Areas\Article\Views\AllArticles\Index.cshtml" />
+    <Content Include="Areas\Article\Views\AllArticles\ById.cshtml" />
+    <Content Include="Areas\Article\Views\AddArticle\Create.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />

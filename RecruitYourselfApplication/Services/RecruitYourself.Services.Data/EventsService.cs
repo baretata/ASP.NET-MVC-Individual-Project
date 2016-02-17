@@ -26,7 +26,7 @@
             return currentEvent;
         }
 
-        public IQueryable<Event> GetRandomJokes(int count)
+        public IQueryable<Event> GetRandomEvents(int count)
         {
             return this.events.All().OrderBy(x => Guid.NewGuid()).Take(count);
         }
