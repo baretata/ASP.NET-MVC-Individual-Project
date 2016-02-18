@@ -8,9 +8,9 @@
 
     public class CategoriesService : ICategoriesService
     {
-        private readonly IDbRepository<Category> categories;
+        private readonly IDbRepository<Category, int> categories;
 
-        public CategoriesService(IDbRepository<Category> categories)
+        public CategoriesService(IDbRepository<Category, int> categories)
         {
             this.categories = categories;
         }

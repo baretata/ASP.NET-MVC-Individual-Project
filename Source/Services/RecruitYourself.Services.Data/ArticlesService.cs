@@ -9,10 +9,10 @@
 
     public class ArticlesService : IArticlesService
     {
-        private readonly IDbRepository<Article> articles;
+        private readonly IDbRepository<Article, int> articles;
         private readonly IIdentifierProvider identifierProvider;
 
-        public ArticlesService(IDbRepository<Article> articles, IIdentifierProvider identifierProvider)
+        public ArticlesService(IDbRepository<Article, int> articles, IIdentifierProvider identifierProvider)
         {
             this.articles = articles;
             this.identifierProvider = identifierProvider;

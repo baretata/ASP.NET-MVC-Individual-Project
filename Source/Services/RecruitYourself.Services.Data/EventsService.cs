@@ -10,10 +10,10 @@
 
     public class EventsService : IEventsService
     {
-        private readonly IDbRepository<Event> events;
+        private readonly IDbRepository<Event, int> events;
         private readonly IIdentifierProvider identifierProvider;
 
-        public EventsService(IDbRepository<Event> events, IIdentifierProvider identifierProvider)
+        public EventsService(IDbRepository<Event, int> events, IIdentifierProvider identifierProvider)
         {
             this.events = events;
             this.identifierProvider = identifierProvider;
