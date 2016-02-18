@@ -208,6 +208,8 @@
     <Compile Include="Areas\Administration\Controllers\AllCategoriesController.cs" />
     <Compile Include="Areas\Administration\Controllers\AllOrganizationsController.cs" />
     <Compile Include="Areas\Administration\Controllers\AllVolunteersController.cs" />
+    <Compile Include="Areas\Administration\ViewModels\BaseAdministrationModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\BaseUserModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\Category\CategoryInputModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\Category\CategoryViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\Organization\OrganizationInputModel.cs" />
@@ -239,7 +241,6 @@
     <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
     <Compile Include="ViewModels\Home\IndexViewModel.cs" />
-    <Compile Include="ViewModels\Home\CategoryViewModel.cs" />
     <Compile Include="ViewModels\Home\EventViewModel.cs" />
     <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Manage\ChangePasswordViewModel.cs" />
@@ -418,7 +419,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Views\Shared\" />
     <Folder Include="Areas\Article\Views\Shared\" />
-    <Folder Include="ViewModels\Users\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

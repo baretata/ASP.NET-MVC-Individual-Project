@@ -1,17 +1,18 @@
 ﻿namespace RecruitYourself.Web.Areas.Administration.Controllers
 {
-    using System.Data.Entity;
     using System.Linq;
     using System.Web.Mvc;
-
+    using Common.Constants;
     using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
 
     using RecruitYourself.Data.Models;
     using RecruitYourself.Services.Data.Contracts;
     using RecruitYourself.Web.Areas.Administration.ViewModels.Category;
+    using RecruitYourself.Web.Infrastructure.Attributes;
     using RecruitYourself.Web.Infrastructure.Mapping;
 
+    [AuthorizeRoles(RoleConstants.AdminRoleConstant)]
     public class AllCategoriesController : Controller
     {
         private readonly ICategoriesService categories;

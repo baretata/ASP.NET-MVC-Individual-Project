@@ -5,7 +5,5 @@
     public class IndexViewModel
     {
         public IEnumerable<EventViewModel> Events { get; set; }
-
-        public IEnumerable<CategoryViewModel> Categories { get; set; }
     }
 }

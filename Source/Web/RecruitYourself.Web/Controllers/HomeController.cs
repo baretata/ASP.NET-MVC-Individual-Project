@@ -23,16 +23,17 @@
 
         public ActionResult Index()
         {
-            var jokes = this.events.GetRandomEvents(3).To<EventViewModel>().ToList();
-            var categories =
-                this.Cache.Get(
-                    "categories",
-                    () => this.categories.GetAll().To<CategoryViewModel>().ToList(),
-                    30 * 60);
+            var events = this.events.GetRandomEvents(3).To<EventViewModel>().ToList();
+
+            // var categories =
+            //    this.Cache.Get(
+            //        "categories",
+            //        () => this.categories.GetAll().To<CategoryViewModel>().ToList(),
+            //        30 * 60);
             var viewModel = new IndexViewModel
             {
-                Events = jokes,
-                Categories = categories
+                Events = events,
+                // Categories = categories
             };
 
             return this.View(viewModel);
