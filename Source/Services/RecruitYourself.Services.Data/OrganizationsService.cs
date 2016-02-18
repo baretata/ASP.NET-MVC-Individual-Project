@@ -39,8 +39,7 @@
 
         public void Delete(string id)
         {
-            var model = this.organizatons.GetById(id);
-            this.organizatons.Delete(model);
+            this.organizatons.Delete(id);
             this.organizatons.Save();
         }
 

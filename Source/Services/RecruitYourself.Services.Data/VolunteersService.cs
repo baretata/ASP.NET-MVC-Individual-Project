@@ -40,8 +40,7 @@
 
         public void Delete(string id)
         {
-            var model = this.volunteers.GetById(id);
-            this.volunteers.Delete(model);
+            this.volunteers.Delete(id);
             this.volunteers.Save();
         }
 

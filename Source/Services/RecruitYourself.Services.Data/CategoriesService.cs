@@ -24,8 +24,7 @@
 
         public void Delete(int id)
         {
-            var model = this.categories.GetById(id);
-            this.categories.Delete(model);
+            this.categories.Delete(id);
             this.categories.Save();
         }
 
