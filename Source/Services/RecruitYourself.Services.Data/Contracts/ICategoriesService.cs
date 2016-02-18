@@ -8,6 +8,14 @@
     {
         IQueryable<Category> GetAll();
 
-        Category EnsureCategory(string name);
+        Category GetById(int id);
+
+        void Add(Category model);
+
+        void Delete(Category model);
+
+        void Delete(int id);
+
+        void Save();
     }
 }

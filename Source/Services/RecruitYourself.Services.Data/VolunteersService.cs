@@ -45,7 +45,7 @@
             this.volunteers.Save();
         }
 
-        public void Update(Volunteer model)
+        public void Save()
         {
             this.volunteers.Save();
         }

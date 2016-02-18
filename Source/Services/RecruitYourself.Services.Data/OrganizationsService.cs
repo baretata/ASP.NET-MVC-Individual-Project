@@ -44,7 +44,7 @@
             this.organizatons.Save();
         }
 
-        public void Update(Organization model)
+        public void Save()
         {
             this.organizatons.Save();
         }

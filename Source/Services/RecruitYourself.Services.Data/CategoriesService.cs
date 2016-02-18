@@ -1,5 +1,6 @@
 ﻿namespace RecruitYourself.Services.Data
 {
+    using System;
     using System.Linq;
 
     using Contracts;
@@ -15,23 +16,38 @@
             this.categories = categories;
         }
 
-        public Category EnsureCategory(string name)
+        public void Add(Category model)
         {
-            var category = this.categories.All().FirstOrDefault(x => x.Name == name);
-            if (category != null)
-            {
-                return category;
-            }
-
-            category = new Category { Name = name };
-            this.categories.Add(category);
+            this.categories.Add(model);
             this.categories.Save();
-            return category;
+        }
+
+        public void Delete(int id)
+        {
+            var model = this.categories.GetById(id);
+            this.categories.Delete(model);
+            this.categories.Save();
+        }
+
+        public void Delete(Category model)
+        {
+            this.categories.Delete(model);
+            this.categories.Save();
         }
 
         public IQueryable<Category> GetAll()
         {
             return this.categories.All().OrderBy(x => x.Name);
+        }
+
+        public Category GetById(int id)
+        {
+            return this.categories.GetById(id);
+        }
+
+        public void Save()
+        {
+            this.categories.Save();
         }
     }
 }

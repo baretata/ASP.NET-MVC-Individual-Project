@@ -12,7 +12,7 @@
 
         void Add(Organization model);
 
-        void Update(Organization model);
+        void Save();
 
         void Delete(Organization model);
 

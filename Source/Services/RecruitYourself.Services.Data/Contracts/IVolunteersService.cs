@@ -12,7 +12,7 @@
 
         void Add(Volunteer model);
 
-        void Update(Volunteer model);
+        void Save();
 
         void Delete(Volunteer model);
 
