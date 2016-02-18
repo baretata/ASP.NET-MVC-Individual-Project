@@ -1,4 +1,4 @@
-﻿namespace RecruitYourself.Data.Common.Models
+﻿namespace RecruitYourself.Data.Common.Contracts
 {
     public interface IBaseModel<TKey> : IAuditInfo, IDeletableEntity
     {
