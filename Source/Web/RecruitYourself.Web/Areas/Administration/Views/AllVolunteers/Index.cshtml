@@ -1,0 +1,37 @@
+﻿@using Kendo.Mvc.UI;
+
+<div class="row">
+    <div class="box">
+        @(Html.Kendo().Grid<RecruitYourself.Web.Areas.Administration.ViewModels.Volunteer.VolunteerViewModel>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+          columns.Bound(c => c.UserName);
+          columns.Bound(c => c.CreatedOn).Format("{0:dd-MM-yyyy HH:mm}");
+          columns.Bound(c => c.ModifiedOn).Format("{0:dd-MM-yyyy HH:mm}");
+          columns.Bound(c => c.IsDeleted);
+          columns.Bound(c => c.Email);
+          columns.Bound(c => c.FirstName);
+          columns.Bound(c => c.LastName);
+          columns.Bound(c => c.Age);
+          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+      })
+      .ColumnMenu()
+      .Editable(editable => editable.Mode(GridEditMode.PopUp))
+      .Pageable()
+      .Sortable(sortable =>
+      {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable()
+      .Scrollable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.Id))
+          .Read(read => read.Action("Users_Read", "AllVolunteers"))
+          .Update(update => update.Action("Users_Update", "AllVolunteers"))
+          .Destroy(destroy => destroy.Action("Users_Destroy", "AllVolunteers"))
+      )
+        )
+    </div>
+</div>

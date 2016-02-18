@@ -1,0 +1,38 @@
+﻿@using Kendo.Mvc.UI;
+
+<div class="row">
+    <div class="box">
+        @(Html.Kendo().Grid<RecruitYourself.Web.Areas.Administration.ViewModels.Category.CategoryViewModel>()
+            .Name("grid")
+            .Columns(columns =>
+            {
+                columns.Bound(c => c.Name);
+                columns.Bound(c => c.CreatedOn).Format("{0:dd-MM-yyyy HH:mm}");
+                columns.Bound(c => c.ModifiedOn).Format("{0:dd-MM-yyyy HH:mm}");
+                columns.Bound(c => c.IsDeleted);
+                columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+            })
+            .ToolBar(toolbar =>
+            {
+                toolbar.Create();
+            })
+            .ColumnMenu()
+            .Editable(editable => editable.Mode(GridEditMode.PopUp))
+            .Pageable()
+            .Sortable(sortable =>
+            {
+                sortable.SortMode(GridSortMode.SingleColumn);
+            })
+            .Filterable()
+            .Scrollable(scr => scr.Height(400))
+            .DataSource(dataSource => dataSource
+                .Ajax()
+                .Model(model => model.Id(p => p.Id))
+                .Read(read => read.Action("Categories_Read", "AllCategories"))
+                .Create(create => create.Action("Categories_Create", "AllCategories"))
+                .Update(update => update.Action("Categories_Update", "AllCategories"))
+                .Destroy(destroy => destroy.Action("Categories_Destroy", "AllCategories"))
+            )
+        )
+    </div>
+</div>

@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using Areas.Article.ViewModels;
+    using RecruitYourself.Web.Areas.Administration.ViewModels;
     using RecruitYourself.Web.ViewModels.Home;
 
     public class OrganizationViewModel

@@ -7,9 +7,8 @@
     using Contracts;
     using Models;
 
-    // TODO: Why BaseModel<int> instead BaseModel<TKey>?
-    public class DbRepository<T> : IDbRepository<T>
-        where T : BaseModel<int>
+    public class DbRepository<T, TKey> : IDbRepository<T, TKey>
+        where T : class, IBaseModel<TKey>
     {
         public DbRepository(DbContext context)
         {
@@ -36,9 +35,11 @@
             return this.DbSet;
         }
 
-        public T GetById(int id)
+        public T GetById(TKey id)
         {
-            return this.All().FirstOrDefault(x => x.Id == id);
+            var entity = this.All().FirstOrDefault(x => x.Id.ToString() == id.ToString());
+
+            return entity;
         }
 
         public void Add(T entity)
@@ -49,7 +50,16 @@
         public void Delete(T entity)
         {
             entity.IsDeleted = true;
-            entity.DeletedOn = DateTime.Now;
+            entity.DeletedOn = DateTime.UtcNow;
+        }
+
+        public void Delete(TKey id)
+        {
+            var entity = this.GetById(id);
+            if (entity != null)
+            {
+                this.Delete(entity);
+            }
         }
 
         public void HardDelete(T entity)

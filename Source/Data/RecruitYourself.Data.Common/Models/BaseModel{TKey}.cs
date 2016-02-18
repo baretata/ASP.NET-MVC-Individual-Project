@@ -4,7 +4,9 @@
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public abstract class BaseModel<TKey> : IAuditInfo, IDeletableEntity
+    using RecruitYourself.Data.Common.Contracts;
+
+    public abstract class BaseModel<TKey> : IBaseModel<TKey>
     {
         [Key]
         public TKey Id { get; set; }

@@ -24,8 +24,8 @@
         public string Name { get; set; }
 
         [Required]
-        [MinLength(DatabaseModelsConstants.NameMinLength)]
-        [MaxLength(DatabaseModelsConstants.NameMaxLength)]
+        [MinLength(DatabaseModelsConstants.AddressMinLength)]
+        [MaxLength(DatabaseModelsConstants.AddressMaxLength)]
         public string Address { get; set; }
 
         public virtual ICollection<Volunteer> Members
