@@ -1,6 +1,5 @@
 ﻿namespace RecruitYourself.Services.Data
 {
-    using System;
     using System.Linq;
 
     using Contracts;
@@ -18,12 +17,36 @@
 
         public void Add(Organization model)
         {
-            throw new NotImplementedException();
+            this.organizatons.Add(model);
+            this.organizatons.Save();
         }
 
         public IQueryable<Organization> GetAll()
         {
-            throw new NotImplementedException();
+            return this.organizatons.All().OrderBy(x => x.UserName);
+        }
+
+        public Organization GetById(string id)
+        {
+            return this.organizatons.GetById(id);
+        }
+
+        public void Delete(Organization model)
+        {
+            this.organizatons.Delete(model);
+            this.organizatons.Save();
+        }
+
+        public void Delete(string id)
+        {
+            var model = this.organizatons.GetById(id);
+            this.organizatons.Delete(model);
+            this.organizatons.Save();
+        }
+
+        public void Update(Organization model)
+        {
+            this.organizatons.Save();
         }
     }
 }

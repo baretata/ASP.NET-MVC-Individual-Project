@@ -4,10 +4,9 @@
     using System.Data.Entity;
     using System.Linq;
 
-    using Common.Models;
-
     using Microsoft.AspNet.Identity.EntityFramework;
 
+    using RecruitYourself.Data.Common.Contracts;
     using RecruitYourself.Data.Models;
 
     public class ApplicationDbContext : IdentityDbContext<User>

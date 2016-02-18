@@ -9,5 +9,7 @@
         public const int ContentMaxLength = 1000;
         public const int UserDescriptionMinLength = 10;
         public const int UserDescriptionMaxLength = 300;
+        public const int AddressMinLength = 10;
+        public const int AddressMaxLength = 100;
     }
 }

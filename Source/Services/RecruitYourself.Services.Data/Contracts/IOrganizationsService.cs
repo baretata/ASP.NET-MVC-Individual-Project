@@ -8,6 +8,14 @@
     {
         IQueryable<Organization> GetAll();
 
+        Organization GetById(string id);
+
         void Add(Organization model);
+
+        void Update(Organization model);
+
+        void Delete(Organization model);
+
+        void Delete(string id);
     }
 }

@@ -2,29 +2,25 @@
 {
     using System.ComponentModel.DataAnnotations;
 
-    using Common.Constants;
-    using Data.Models;
-    using Infrastructure.Mapping;
+    using RecruitYourself.Common.Constants;
+    using RecruitYourself.Data.Models;
+    using RecruitYourself.Web.Infrastructure.Mapping;
 
     public class VolunteerInputModel : IMapTo<Volunteer>
     {
         public string Id { get; set; }
 
-        [Required]
         [MinLength(DatabaseModelsConstants.NameMinLength)]
         [MaxLength(DatabaseModelsConstants.NameMaxLength)]
         public string UserName { get; set; }
 
-        [Required]
         [EmailAddress]
         public string Email { get; set; }
 
-        [Required]
         [MinLength(DatabaseModelsConstants.NameMinLength)]
         [MaxLength(DatabaseModelsConstants.NameMaxLength)]
         public string FirstName { get; set; }
 
-        [Required]
         [MinLength(DatabaseModelsConstants.NameMinLength)]
         [MaxLength(DatabaseModelsConstants.NameMaxLength)]
         public string LastName { get; set; }

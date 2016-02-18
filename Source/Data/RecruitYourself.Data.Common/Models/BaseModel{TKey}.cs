@@ -4,6 +4,8 @@
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
+    using RecruitYourself.Data.Common.Contracts;
+
     public abstract class BaseModel<TKey> : IBaseModel<TKey>
     {
         [Key]

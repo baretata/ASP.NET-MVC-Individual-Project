@@ -1,16 +1,15 @@
 ﻿namespace RecruitYourself.Data.Models
 {
     using System;
-    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.Security.Claims;
     using System.Threading.Tasks;
 
-    using Common.Models;
-
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
+
     using RecruitYourself.Common.Constants;
+    using RecruitYourself.Data.Common.Contracts;
 
     public class User : IdentityUser, IBaseModel<string>
     {
