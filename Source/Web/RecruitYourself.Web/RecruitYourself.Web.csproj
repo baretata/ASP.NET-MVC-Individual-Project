@@ -205,7 +205,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\ViewEngineConfig.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
-    <Compile Include="Areas\Administration\Controllers\AdministrationController.cs" />
+    <Compile Include="Areas\Administration\Controllers\AllVolunteersController.cs" />
+    <Compile Include="Areas\Administration\ViewModels\VolunteerInputModel.cs" />
     <Compile Include="Areas\Article\ArticleAreaRegistration.cs" />
     <Compile Include="Areas\Article\Controllers\AddArticleController.cs" />
     <Compile Include="Areas\Article\Controllers\AllArticlesController.cs" />
@@ -333,7 +334,7 @@
     <Content Include="Areas\Article\Views\AllArticles\ById.cshtml" />
     <Content Include="Areas\Article\Views\AddArticle\Create.cshtml" />
     <Content Include="Areas\Administration\Views\web.config" />
-    <Content Include="Areas\Administration\Views\Administration\AllVolunteers.cshtml" />
+    <Content Include="Areas\Administration\Views\AllVolunteers\Index.cshtml" />
     <Content Include="Content\KendoUI\fonts\DejaVu\DejaVuSans-Bold.ttf" />
     <Content Include="Content\KendoUI\fonts\DejaVu\DejaVuSans-BoldOblique.ttf" />
     <Content Include="Content\KendoUI\fonts\DejaVu\DejaVuSans-ExtraLight.ttf" />
@@ -400,6 +401,8 @@
     <Content Include="Views\Account\_RegisterOrganizationPartial.cshtml" />
     <Content Include="Views\Account\_RegisterVolunteerPartial.cshtml" />
     <Content Include="Views\Shared\_ArticleDropdownPartial.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\VolunteerViewModel.cshtml" />
+    <Content Include="Views\Shared\_AdministrationDropdownPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -407,6 +410,7 @@
     <Folder Include="Areas\Article\Views\Shared\" />
     <Folder Include="Views\Administration\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Shared\DisplayTemplates\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

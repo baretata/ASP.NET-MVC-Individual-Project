@@ -62,8 +62,8 @@
             var servicesAssembly = Assembly.GetAssembly(typeof(IEventsService));
             builder.RegisterAssemblyTypes(servicesAssembly).AsImplementedInterfaces();
 
-            builder.RegisterGeneric(typeof(DbRepository<>))
-                .As(typeof(IDbRepository<>))
+            builder.RegisterGeneric(typeof(DbRepository<,>))
+                .As(typeof(IDbRepository<,>))
                 .InstancePerRequest();
 
             builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())

@@ -1,10 +1,19 @@
-﻿namespace RecruitYourself.Web.ViewModels.Users
+﻿namespace RecruitYourself.Web.Areas.Administration.ViewModels
 {
     using System;
+    using System.ComponentModel.DataAnnotations;
 
-    public class VolunteerViewModel
+    using Data.Models;
+    using Web.Infrastructure.Mapping;
+
+    public class VolunteerViewModel : IMapFrom<Volunteer>
     {
+        [Key]
+        public string Id { get; set; }
+
         public string UserName { get; set; }
+
+        public string Email { get; set; }
 
         public string FirstName { get; set; }
 
@@ -14,14 +23,10 @@
 
         public string Description { get; set; }
 
-        public string Image { get; set; }
-
         public DateTime CreatedOn { get; set; }
 
         public DateTime? ModifiedOn { get; set; }
 
         public bool IsDeleted { get; set; }
-
-        public DateTime? DeletedOn { get; set; }
     }
 }
