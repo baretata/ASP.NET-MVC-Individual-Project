@@ -1,12 +1,10 @@
-﻿namespace RecruitYourself.Web.Areas.Administration.ViewModels
+﻿namespace RecruitYourself.Web.Areas.Administration.ViewModels.Organization
 {
     using System.ComponentModel.DataAnnotations;
 
     using RecruitYourself.Common.Constants;
-    using RecruitYourself.Data.Models;
-    using RecruitYourself.Web.Infrastructure.Mapping;
 
-    public class VolunteerInputModel : IMapTo<Volunteer>
+    public class OrganizationInputModel
     {
         public string Id { get; set; }
 
@@ -19,19 +17,14 @@
 
         [MinLength(DatabaseModelsConstants.NameMinLength)]
         [MaxLength(DatabaseModelsConstants.NameMaxLength)]
-        public string FirstName { get; set; }
+        public string Name { get; set; }
 
-        [MinLength(DatabaseModelsConstants.NameMinLength)]
-        [MaxLength(DatabaseModelsConstants.NameMaxLength)]
-        public string LastName { get; set; }
+        [MinLength(DatabaseModelsConstants.AddressMinLength)]
+        [MaxLength(DatabaseModelsConstants.AddressMaxLength)]
+        public string Address { get; set; }
 
-        [Required]
         [MinLength(DatabaseModelsConstants.UserDescriptionMinLength)]
         [MaxLength(DatabaseModelsConstants.UserDescriptionMaxLength)]
         public string Description { get; set; }
-
-        [Required]
-        [Range(DatabaseModelsConstants.AgeMinRange, DatabaseModelsConstants.AgeMaxRange)]
-        public short Age { get; set; }
     }
 }

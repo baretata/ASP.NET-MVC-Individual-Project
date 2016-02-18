@@ -3,15 +3,16 @@
     using System.Linq;
     using System.Web.Mvc;
 
-    using Common.Constants;
-    using Data.Models;
-    using Infrastructure.Attributes;
-    using Infrastructure.Mapping;
     using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
-    using Services.Data.Contracts;
-    using ViewModels;
-    using Web.Controllers;
+
+    using RecruitYourself.Common.Constants;
+    using RecruitYourself.Data.Models;
+    using RecruitYourself.Services.Data.Contracts;
+    using RecruitYourself.Web.Areas.Administration.ViewModels.Volunteer;
+    using RecruitYourself.Web.Controllers;
+    using RecruitYourself.Web.Infrastructure.Attributes;
+    using RecruitYourself.Web.Infrastructure.Mapping;
 
     [AuthorizeRoles(RoleConstants.AdminRoleConstant)]
     public class AllVolunteersController : BaseController
@@ -52,7 +53,7 @@
                 entity.Description = volunteer.Description;
                 entity.Age = volunteer.Age;
 
-                this.volunteers.Update(entity);
+                this.volunteers.Save();
             }
 
             var volunteerToDisplay = this.volunteers

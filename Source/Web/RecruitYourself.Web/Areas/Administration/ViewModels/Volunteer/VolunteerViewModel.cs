@@ -1,4 +1,4 @@
-﻿namespace RecruitYourself.Web.Areas.Administration.ViewModels
+﻿namespace RecruitYourself.Web.Areas.Administration.ViewModels.Volunteer
 {
     using System;
     using System.ComponentModel.DataAnnotations;

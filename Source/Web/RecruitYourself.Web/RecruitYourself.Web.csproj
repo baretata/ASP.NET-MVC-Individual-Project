@@ -205,10 +205,13 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\ViewEngineConfig.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
+    <Compile Include="Areas\Administration\Controllers\AllCategoriesController.cs" />
     <Compile Include="Areas\Administration\Controllers\AllOrganizationsController.cs" />
     <Compile Include="Areas\Administration\Controllers\AllVolunteersController.cs" />
-    <Compile Include="Areas\Administration\ViewModels\OrganizationInputModel.cs" />
-    <Compile Include="Areas\Administration\ViewModels\VolunteerInputModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Category\CategoryInputModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Category\CategoryViewModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Organization\OrganizationInputModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Volunteer\VolunteerInputModel.cs" />
     <Compile Include="Areas\Article\ArticleAreaRegistration.cs" />
     <Compile Include="Areas\Article\Controllers\AddArticleController.cs" />
     <Compile Include="Areas\Article\Controllers\AllArticlesController.cs" />
@@ -248,8 +251,8 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
-    <Compile Include="Areas\Administration\ViewModels\OrganizationViewModel.cs" />
-    <Compile Include="Areas\Administration\ViewModels\VolunteerViewModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Organization\OrganizationViewModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Volunteer\VolunteerViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -357,6 +360,7 @@
     <Content Include="Content\KendoUI\images\kendoui.woff" />
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Administration\Views\AllOrganizations\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\AllCategories\Index.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -408,13 +412,13 @@
     <Content Include="Views\Shared\_AdministrationDropdownPartial.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\OrganizationViewModel.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\CategoryViewModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Views\Shared\" />
     <Folder Include="Areas\Article\Views\Shared\" />
     <Folder Include="ViewModels\Users\" />
-    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
