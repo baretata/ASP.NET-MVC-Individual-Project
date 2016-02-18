@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Register";
+}
+
+<div class="row">
+    <div class="col-lg-6">
+        <div class="box registration-form">
+            <h2 class="text-center">@ViewBag.Title.</h2>
+            <h4 class="text-center">Create a new account.</h4>
+            @if (this.Request.Path.Contains("Volunteer"))
+            {
+                @Html.Partial("_RegisterVolunteerPartial");
+            }
+            else if (this.Request.Path.Contains("Organization"))
+            {
+                @Html.Partial("_RegisterOrganizationPartial");
+            }
+            else
+            {
+                this.Response.Redirect("/");    // TODO: redir to Page no found 404
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
