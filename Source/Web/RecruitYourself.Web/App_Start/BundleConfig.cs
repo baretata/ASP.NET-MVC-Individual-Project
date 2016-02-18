@@ -22,10 +22,18 @@
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/kendo").Include(
+                      "~/Scripts/KendoUI/kendo.all.min.js",
+                      "~/Scripts/KendoUI/kendo.aspnetmvc.min.js"));
+
             bundles.Add(new StyleBundle("~/Content/css/v1").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
                       "~/Content/business-casual.css"));
+
+            bundles.Add(new StyleBundle("~/Content/kendo").Include(
+                      "~/Content/KendoUI/kendo.common.min.css",
+                      "~/Content/KendoUI/kendo.default.min.css"));
         }
     }
 }
