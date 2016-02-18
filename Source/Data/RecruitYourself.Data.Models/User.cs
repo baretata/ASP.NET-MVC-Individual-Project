@@ -12,7 +12,7 @@
     using Microsoft.AspNet.Identity.EntityFramework;
     using RecruitYourself.Common.Constants;
 
-    public class User : IdentityUser, IAuditInfo, IDeletableEntity
+    public class User : IdentityUser, IBaseModel<string>
     {
         [Required]
         [MinLength(DatabaseModelsConstants.NameMinLength)]
