@@ -1,0 +1,21 @@
+﻿@using RecruitYourself.Common.Constants
+
+@if (this.Request.IsAuthenticated && this.Context.User.IsInRole(RoleConstants.AdminRoleConstant))
+{
+    <li>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            Admin<span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" role="menu">
+            <li>
+                @Html.ActionLink("Volunteers", "Index", "AllVolunteers", new { area = "Administration" }, null)
+            </li>
+            <li>
+                @Html.ActionLink("Organizations", "Index", "AllOrganizations", new { area = "Administration" }, null)
+            </li>
+            <li>
+                @Html.ActionLink("Categories", "Index", "AllCategories", new { area = "Administration" }, null)
+            </li>
+        </ul>
+    </li>
+}
