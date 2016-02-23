@@ -1,0 +1,94 @@
+﻿@model RecruitYourself.Web.Areas.Event.ViewModels.CreateViewModel
+@using Kendo.Mvc.UI;
+
+@{
+    ViewBag.Title = "Create Event";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="form-horizontal col-lg-6">
+            <div class="box">
+                <h4 class="text-center">Create Event</h4>
+                <hr />
+                @Html.ValidationSummary(true, string.Empty, new { @class = "text-danger" })
+
+                <div class="col-md-11 col-md-offset-1">
+                    <div class="form-group">
+                        <div class="col-md-3 text-right">
+                            @Html.LabelFor(model => model.InputModel.Name, htmlAttributes: new { @class = "control-label" })
+                        </div>
+                        <div class="col-md-9">
+                            @Html.EditorFor(model => model.InputModel.Name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.InputModel.Name, string.Empty, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-11 col-md-offset-1">
+                    <div class="form-group">
+                        <div class="col-md-3 text-right">
+                            @Html.LabelFor(model => model.InputModel.Description, htmlAttributes: new { @class = "control-label" })
+                        </div>
+                        <div class="col-md-9">
+                            @Html.TextAreaFor(model => model.InputModel.Description, new { @class = "form-control", rows = "5" })
+                            @Html.ValidationMessageFor(model => model.InputModel.Description, string.Empty, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-11 col-md-offset-1">
+                    <div class="form-group">
+                        <div class="col-md-3 text-right">
+                            @Html.LabelFor(model => model.InputModel.CategoryId, htmlAttributes: new { @class = "control-label" })
+                        </div>
+                        <div class="col-md-9">
+                            @Html.DropDownListFor(model => model.InputModel.CategoryId, Model.Categories, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-11 col-md-offset-1">
+                    <div class="form-group">
+                        <div class="col-md-3 text-right">
+                            @Html.LabelFor(model => model.InputModel.StartTime, htmlAttributes: new { @class = "control-label" })
+                        </div>
+                        <div class="col-md-9">
+                            @(Html.Kendo().DateTimePickerFor(model => model.InputModel.StartTime))
+                            <br />
+                            @Html.ValidationMessageFor(model => model.InputModel.StartTime, string.Empty, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-11 col-md-offset-1">
+                    <div class="form-group">
+                        <div class="col-md-3 text-right">
+                            @Html.LabelFor(model => model.InputModel.EndTime, htmlAttributes: new { @class = "control-label" })
+                        </div>
+                        <div class="col-md-9">
+                            @(Html.Kendo().DateTimePickerFor(model => model.InputModel.EndTime))
+                            <br />
+                            @Html.ValidationMessageFor(model => model.InputModel.EndTime, string.Empty, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                        <input type="reset" value="Cancel" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

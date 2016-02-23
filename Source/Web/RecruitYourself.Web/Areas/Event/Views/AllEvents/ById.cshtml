@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Details";
 }
+
 <div class="row">
     <div class="box">
         <div class="item-container col-lg-12">
@@ -13,9 +14,12 @@
             <hr>
             <img class="img-responsive img-border img-left" src="@Model.Image" alt="Event Image">
             <hr class="visible-xs">
-            <p>@Model.Description</p>
+            <p><strong>Start date: </strong>@Model.StartTime</p>
+            <p><strong>End date: </strong>@Model.EndTime</p>
+            <p><strong>Category: </strong>@Model.Category</p>
+            <p><strong>Description: </strong> @Model.Description</p>
         </div>
-        <span class="pull-right">by <em>@Model.Creator</em> on <em>@Model.CreatedOn</em></span>
+        <span class="pull-right">organized by <em>@Model.Creator</em> on <em>@Model.CreatedOn</em></span>
         <p>
             @Html.ActionLink("Back to All Events", "Index", null, new { @class = "btn btn-default" })
         </p>

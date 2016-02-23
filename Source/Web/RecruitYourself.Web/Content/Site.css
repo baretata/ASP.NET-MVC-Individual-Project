@@ -30,3 +30,7 @@ textarea {
 .item-header {
     margin-bottom: 30px;
 }
+
+span.k-datetimepicker {
+    width: 85%;
+}
