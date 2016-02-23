@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("RecruitYourself.Web.Routes.Tests")]
+[assembly: AssemblyTitle("RecruitYourself.Services.Data.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("RecruitYourself.Web.Routes.Tests")]
+[assembly: AssemblyProduct("RecruitYourself.Services.Data.Tests")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("8c7ba433-672b-4350-adc5-10c774e16489")]
+[assembly: Guid("04bddf71-4971-4445-b41c-846d27046ddc")]
 
 // Version information for an assembly consists of the following four values:
 //

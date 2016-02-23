@@ -177,6 +177,7 @@
         }
 
         // GET: /Account/Register
+        [HttpGet]
         [AllowAnonymous]
         public ActionResult Register()
         {

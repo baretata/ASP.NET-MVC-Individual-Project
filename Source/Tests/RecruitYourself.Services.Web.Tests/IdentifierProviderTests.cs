@@ -7,11 +7,18 @@
     [TestFixture]
     public class IdentifierProviderTests
     {
+        private IIdentifierProvider provider;
+
+        [OneTimeSetUp]
+        public void Init()
+        {
+            this.provider = new IdentifierProvider();
+        }
+
         [Test]
         public void EncodingAndDecodingDoesntChangeTheId()
         {
             const int Id = 1337;
-            IIdentifierProvider provider = new IdentifierProvider();
             var encoded = provider.EncodeId(Id);
             var actual = provider.DecodeId(encoded);
             Assert.AreEqual(Id, actual);
