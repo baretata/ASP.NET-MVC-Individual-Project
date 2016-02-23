@@ -26,6 +26,7 @@
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(ArticleInputModel model)
         {
             if (this.ModelState.IsValid)

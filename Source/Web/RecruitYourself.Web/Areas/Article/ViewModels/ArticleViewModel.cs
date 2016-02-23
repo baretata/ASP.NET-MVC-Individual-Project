@@ -1,11 +1,13 @@
 ﻿namespace RecruitYourself.Web.Areas.Article.ViewModels
 {
     using System;
+
     using AutoMapper;
-    using Infrastructure.Mapping;
+
     using RecruitYourself.Data.Models;
-    using Services.Web;
-    using Services.Web.Contracts;
+    using RecruitYourself.Services.Web;
+    using RecruitYourself.Services.Web.Contracts;
+    using RecruitYourself.Web.Infrastructure.Mapping;
 
     public class ArticleViewModel : IMapFrom<Article>, IHaveCustomMappings
     {

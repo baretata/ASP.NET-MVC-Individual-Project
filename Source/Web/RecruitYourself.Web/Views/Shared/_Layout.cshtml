@@ -21,7 +21,7 @@
 </head>
 <body>
     <div class="brand">Recruit Yourself</div>
-    <div class="address-bar">3481 Melrose Place | Beverly Hills, CA 90210 | 123.456.7890</div>
+    @*<div class="address-bar">3481 Melrose Place | Beverly Hills, CA 90210 | 123.456.7890</div>*@
 
     <!-- Navigation -->
     <nav class="navbar navbar-default" role="navigation">
@@ -35,7 +35,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-                @Html.ActionLink("Recruit Yourself", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Recruit Yourself", "Index", "Home", new { area = string.Empty }, new { @class = "navbar-brand" })
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -43,6 +43,7 @@
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
                     @Html.Partial("_ArticleDropdownPartial")
                     @Html.Partial("_AdministrationDropdownPartial")
+                    @Html.Partial("_EventDropdownPartial")
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
