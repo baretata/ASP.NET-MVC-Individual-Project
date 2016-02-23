@@ -1,0 +1,86 @@
+﻿@model RecruitYourself.Web.Areas.Event.ViewModels.EventListViewModel
+
+@{
+    ViewBag.Title = "Events";
+}
+
+<div class="row">
+    <div class="box">
+        <h2 class="text-center item-header">Recent Events</h2>
+        <form class="form-inline">
+            <div class="form-group">
+                @using (Html.BeginForm())
+                {
+                    @Html.TextBox("searchQuery", null, new { @class = "search-text form-control", placeholder = "Search..." })
+                    <input type="submit" class="btn btn-default" value="Search" />
+                }
+            </div>
+        </form>
+    </div>
+</div>
+@if (Model.Events.Count() != 0)
+{
+    foreach (var item in Model.Events)
+    {
+        <div class="row">
+            <div class="box">
+                <div class="item-container col-lg-12">
+                    <hr>
+                    <h1 class="intro-text text-center">
+                        @Html.ActionLink(item.Name, "ById", "AllEvents", new { id = item.EncodedId }, null)
+                    </h1>
+                    <hr>
+                    <img class="img-responsive img-border img-left" src="@item.Image" alt="Event Image">
+                    <hr class="visible-xs">
+                    <p>@item.Description</p>
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="row">
+        <div class="box">
+            <nav class="text-center">
+                <ul class="pagination pagination-lg">
+                    @if (Model.CurrentPage > 1)
+                {
+                        <li>
+                            <a href="/Event/AllEvents/Index/@(Model.CurrentPage - 1)" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                    }
+
+                    @for (int i = 1; i <= Model.TotalPages; i++)
+                    {
+                        var activePage = string.Empty;
+                        if (Model.CurrentPage == i)
+                        {
+                            activePage = "active";
+                        }
+
+                        <li class="@activePage"><a href="/Event/AllEvents/Index/@i">@i</a></li>
+                    }
+
+                    @if (Model.CurrentPage < Model.TotalPages)
+                    {
+                        <li>
+                            <a href="/Event/AllEvents/Index/@(Model.CurrentPage + 1)" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </nav>
+        </div>
+    </div>
+}
+else
+{
+    <div class="row">
+        <div class="box">
+            <h2 class="text-center">No events found.</h2>
+        </div>
+    </div>
+}
+
