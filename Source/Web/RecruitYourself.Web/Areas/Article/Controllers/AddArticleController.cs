@@ -37,6 +37,7 @@
                 article.CreatorId = userId;
 
                 this.articles.Add(article);
+
                 return this.RedirectToAction("Index", "AllArticles");
             }
 

@@ -11,6 +11,13 @@
 
     public class ArticleViewModel : IMapFrom<Article>, IHaveCustomMappings
     {
+        private IIdentifierProvider identifier;
+
+        public ArticleViewModel()
+        {
+            this.identifier = new IdentifierProvider();
+        }
+
         public int Id { get; set; }
 
         public string Name { get; set; }
@@ -27,9 +34,7 @@
         {
             get
             {
-                IIdentifierProvider identifier = new IdentifierProvider();
-
-                return identifier.EncodeId(this.Id);
+                return this.identifier.EncodeId(this.Id);
             }
         }
 

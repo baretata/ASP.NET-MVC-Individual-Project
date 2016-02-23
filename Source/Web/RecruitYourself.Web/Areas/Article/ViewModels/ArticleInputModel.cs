@@ -2,18 +2,19 @@
 {
     using System.ComponentModel.DataAnnotations;
 
-    using Data.Models;
-    using Infrastructure.Mapping;
+    using RecruitYourself.Common.Constants;
+    using RecruitYourself.Data.Models;
+    using RecruitYourself.Web.Infrastructure.Mapping;
 
     public class ArticleInputModel : IMapTo<Article>
     {
         [Required]
-        [MinLength(3)]
-        [MaxLength(40)]
+        [MinLength(DatabaseModelsConstants.NameMinLength)]
+        [MaxLength(DatabaseModelsConstants.NameMaxLength)]
         public string Name { get; set; }
 
         [Required]
-        [MaxLength(1000)]
+        [MaxLength(DatabaseModelsConstants.ContentMaxLength)]
         public string Content { get; set; }
     }
 }
