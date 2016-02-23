@@ -6,8 +6,11 @@
         <li>
             @Html.ActionLink("All Events", "Index", "AllEvents", new { area = "Event" }, null)
         </li>
-        <li>
-            @Html.ActionLink("Create Event", "Create", "AddEvent", new { area = "Event" }, null)
-        </li>
+        @if (this.Request.IsAuthenticated)
+        {
+            <li>
+                @Html.ActionLink("Create Event", "Create", "AddEvent", new { area = "Event" }, null)
+            </li>
+        }
     </ul>
 </li>
