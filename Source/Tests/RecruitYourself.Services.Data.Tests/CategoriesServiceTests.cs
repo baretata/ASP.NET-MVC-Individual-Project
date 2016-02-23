@@ -12,28 +12,27 @@
     [TestFixture]
     public class CategoriesServiceTests
     {
-        private IQueryable<Category> mockedCategories;
-        private Mock<ICategoriesService> mockedCategoriesData;
+        private Mock<ICategoriesService> categoriesServiceMock;
 
         [OneTimeSetUp]
         public void Init()
         {
-            mockedCategories = new List<Category>().AsQueryable();
-            mockedCategoriesData = new Mock<ICategoriesService>();
+            var categoriesMock = new List<Category>().AsQueryable();
+            categoriesServiceMock = new Mock<ICategoriesService>();
 
-            mockedCategoriesData
+            categoriesServiceMock
                 .Setup(s => s.GetAll())
-                .Returns(mockedCategories);
+                .Returns(categoriesMock);
 
-            mockedCategoriesData
+            categoriesServiceMock
                 .Setup(s => s.GetById(1))
                 .Returns(new Category { Id = 1 });
 
-            mockedCategoriesData
+            categoriesServiceMock
                 .Setup(s => s.Delete(It.IsAny<Category>()))
                 .Verifiable();
 
-            mockedCategoriesData
+            categoriesServiceMock
                 .Setup(s => s.Add(It.IsAny<Category>()))
                 .Verifiable();
         }
@@ -41,29 +40,29 @@
         [Test]
         public void GetAllCategoriesShouldNotReturnNull()
         {
-            IQueryable<Category> categories = mockedCategoriesData.Object.GetAll();
+            IQueryable<Category> categories = categoriesServiceMock.Object.GetAll();
             Assert.AreNotEqual(null, categories);
         }
 
         [Test]
         public void GetByIdCategoryShouldNotReturnNull()
         {
-            Category category = mockedCategoriesData.Object.GetById(1);
+            Category category = categoriesServiceMock.Object.GetById(1);
             Assert.AreEqual(1, category.Id);
         }
 
         [Test]
         public void AddCategoryShouldBeCalled()
         {
-            mockedCategoriesData.Object.Add(new Category());
-            mockedCategoriesData.Verify(s => s.Add(It.IsAny<Category>()));
+            categoriesServiceMock.Object.Add(new Category());
+            categoriesServiceMock.Verify(s => s.Add(It.IsAny<Category>()));
         }
 
         [Test]
         public void DeleteCategoryShouldBeCalled()
         {
-            mockedCategoriesData.Object.Delete(new Category());
-            mockedCategoriesData.Verify(s => s.Delete(It.IsAny<Category>()));
+            categoriesServiceMock.Object.Delete(new Category());
+            categoriesServiceMock.Verify(s => s.Delete(It.IsAny<Category>()));
         }
     }
 }

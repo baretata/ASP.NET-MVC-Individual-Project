@@ -91,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArticlesRouteTests.cs" />
+    <Compile Include="EventsRouteTests.cs" />
     <Compile Include="RegistrationRouteTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

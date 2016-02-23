@@ -12,28 +12,27 @@
     [TestFixture]
     public class OrganizationsServiceTests
     {
-        private IQueryable<Organization> mockedOrganizations;
-        private Mock<IOrganizationsService> mockedOrganizationsData;
+        private Mock<IOrganizationsService> organizationServiceMock;
 
         [OneTimeSetUp]
         public void Init()
         {
-            mockedOrganizations = new List<Organization>().AsQueryable();
-            mockedOrganizationsData = new Mock<IOrganizationsService>();
+            var organizationsMock = new List<Organization>().AsQueryable();
+            organizationServiceMock = new Mock<IOrganizationsService>();
 
-            mockedOrganizationsData
+            organizationServiceMock
                 .Setup(s => s.GetAll())
-                .Returns(mockedOrganizations);
+                .Returns(organizationsMock);
 
-            mockedOrganizationsData
+            organizationServiceMock
                 .Setup(s => s.GetById("1"))
                 .Returns(new Organization { Id = "1" });
 
-            mockedOrganizationsData
+            organizationServiceMock
                 .Setup(s => s.Delete(It.IsAny<Organization>()))
                 .Verifiable();
 
-            mockedOrganizationsData
+            organizationServiceMock
                 .Setup(s => s.Add(It.IsAny<Organization>()))
                 .Verifiable();
         }
@@ -41,29 +40,29 @@
         [Test]
         public void GetAllOrganizationsShouldNotReturnNull()
         {
-            IQueryable<Organization> organizations = mockedOrganizationsData.Object.GetAll();
+            IQueryable<Organization> organizations = organizationServiceMock.Object.GetAll();
             Assert.AreNotEqual(null, organizations);
         }
 
         [Test]
         public void GetByIdOrganizationShouldNotReturnNull()
         {
-            Organization organization = mockedOrganizationsData.Object.GetById("1");
+            Organization organization = organizationServiceMock.Object.GetById("1");
             Assert.AreEqual("1", organization.Id);
         }
 
         [Test]
         public void AddOrganizationShouldBeCalled()
         {
-            mockedOrganizationsData.Object.Add(new Organization());
-            mockedOrganizationsData.Verify(s => s.Add(It.IsAny<Organization>()));
+            organizationServiceMock.Object.Add(new Organization());
+            organizationServiceMock.Verify(s => s.Add(It.IsAny<Organization>()));
         }
 
         [Test]
         public void DeleteOrganizationShouldBeCalled()
         {
-            mockedOrganizationsData.Object.Delete(new Organization());
-            mockedOrganizationsData.Verify(s => s.Delete(It.IsAny<Organization>()));
+            organizationServiceMock.Object.Delete(new Organization());
+            organizationServiceMock.Verify(s => s.Delete(It.IsAny<Organization>()));
         }
     }
 }

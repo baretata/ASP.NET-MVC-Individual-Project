@@ -12,28 +12,27 @@
     [TestFixture]
     public class VolunteersServiceTests
     {
-        private IQueryable<Volunteer> mockedVolunteers;
-        private Mock<IVolunteersService> mockedVolunteersData;
+        private Mock<IVolunteersService> volunteerServiceMock;
 
         [OneTimeSetUp]
         public void Init()
         {
-            mockedVolunteers = new List<Volunteer>().AsQueryable();
-            mockedVolunteersData = new Mock<IVolunteersService>();
+            var volunteersMock = new List<Volunteer>().AsQueryable();
+            volunteerServiceMock = new Mock<IVolunteersService>();
 
-            mockedVolunteersData
+            volunteerServiceMock
                 .Setup(s => s.GetAll())
-                .Returns(mockedVolunteers);
+                .Returns(volunteersMock);
 
-            mockedVolunteersData
+            volunteerServiceMock
                 .Setup(s => s.GetById("1"))
                 .Returns(new Volunteer { Id = "1" });
 
-            mockedVolunteersData
+            volunteerServiceMock
                 .Setup(s => s.Delete(It.IsAny<Volunteer>()))
                 .Verifiable();
 
-            mockedVolunteersData
+            volunteerServiceMock
                 .Setup(s => s.Add(It.IsAny<Volunteer>()))
                 .Verifiable();
         }
@@ -41,29 +40,29 @@
         [Test]
         public void GetAllVolunteersShouldNotReturnNull()
         {
-            IQueryable<Volunteer> volunteers = mockedVolunteersData.Object.GetAll();
+            IQueryable<Volunteer> volunteers = volunteerServiceMock.Object.GetAll();
             Assert.AreNotEqual(null, volunteers);
         }
 
         [Test]
         public void GetByIdVolunteerShouldNotReturnNull()
         {
-            Volunteer volunteer = mockedVolunteersData.Object.GetById("1");
+            Volunteer volunteer = volunteerServiceMock.Object.GetById("1");
             Assert.AreEqual("1", volunteer.Id);
         }
 
         [Test]
         public void AddVoluneteerShouldBeCalled()
         {
-            mockedVolunteersData.Object.Add(new Volunteer());
-            mockedVolunteersData.Verify(s => s.Add(It.IsAny<Volunteer>()));
+            volunteerServiceMock.Object.Add(new Volunteer());
+            volunteerServiceMock.Verify(s => s.Add(It.IsAny<Volunteer>()));
         }
 
         [Test]
         public void DeleteVolunteerShouldBeCalled()
         {
-            mockedVolunteersData.Object.Delete(new Volunteer());
-            mockedVolunteersData.Verify(s => s.Delete(It.IsAny<Volunteer>()));
+            volunteerServiceMock.Object.Delete(new Volunteer());
+            volunteerServiceMock.Verify(s => s.Delete(It.IsAny<Volunteer>()));
         }
     }
 }
