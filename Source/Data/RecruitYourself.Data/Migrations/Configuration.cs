@@ -69,7 +69,7 @@
                 UserName = "organ",
                 Address = "Sofia, Rakovski 20",
                 Description = "Organization vision and mission description",
-                Image = "http://www.keenthemes.com/preview/metronic/theme/assets/global/plugins/jcrop/demos/demo_files/image1.jpg"
+                Image = "http://www.donornetworkwest.org/wp-content/uploads/2015/03/Volunteer.png"
             };
 
             context.Organizations.Add(organization);
@@ -80,7 +80,8 @@
                 LastName = "Kolev",
                 UserName = "pesho",
                 Age = (short)randomGenerator.Next(10, 50),
-                Description = "Users dont need description"
+                Description = "Users dont need description",
+                Image = "http://www.resolve.org/assets/images/volunteer-image.jpg"
             };
 
             context.Users.Add(volunteer);
@@ -118,6 +119,7 @@
                     Category = currentCategory,
                     StartTime = DateTime.Now.AddDays(randomGenerator.NextDouble() * 2),
                     EndTime = DateTime.Now.AddDays(randomGenerator.NextDouble() * 7),
+                    Participants = new List<Volunteer>() { volunteer }
                 };
 
                 if (i % 2 == 1)

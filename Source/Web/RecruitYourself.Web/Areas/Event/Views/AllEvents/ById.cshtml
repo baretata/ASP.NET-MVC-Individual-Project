@@ -1,0 +1,27 @@
+﻿@model RecruitYourself.Web.Areas.Event.ViewModels.EventViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="row">
+    <div class="box">
+        <div class="item-container col-lg-12">
+            <hr>
+            <h2 class="intro-text text-center">
+                @Model.Name
+            </h2>
+            <hr>
+            <img class="img-responsive img-border img-left" src="@Model.Image" alt="Event Image">
+            <hr class="visible-xs">
+            <p><strong>Start date: </strong>@Model.StartTime</p>
+            <p><strong>End date: </strong>@Model.EndTime</p>
+            <p><strong>Category: </strong>@Model.Category</p>
+            <p><strong>Description: </strong> @Model.Description</p>
+        </div>
+        <span class="pull-right">organized by <em>@Model.Creator</em> on <em>@Model.CreatedOn</em></span>
+        <p>
+            @Html.ActionLink("Back to All Events", "Index", null, new { @class = "btn btn-default" })
+        </p>
+    </div>
+</div>

@@ -104,11 +104,11 @@ hr {
     letter-spacing: 1px;
 }
 
-.article-container {
+.item-container {
     margin-bottom: 20px;
 }
 
-.article-container .img-responsive {
+.item-container .img-responsive {
     width: 30%;
 }
 

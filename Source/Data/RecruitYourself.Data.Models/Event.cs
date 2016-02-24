@@ -5,8 +5,8 @@
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    using Common.Models;
     using RecruitYourself.Common.Constants;
+    using RecruitYourself.Data.Common.Models;
 
     public class Event : BaseModel<int>
     {

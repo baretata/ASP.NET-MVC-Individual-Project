@@ -23,7 +23,7 @@
 
         public ActionResult Index()
         {
-            var events = this.events.GetRandomEvents(3).To<EventViewModel>().ToList();
+            var events = this.events.GetNewestEvents(3).To<EventViewModel>().ToList();
 
             // var categories =
             //    this.Cache.Get(
