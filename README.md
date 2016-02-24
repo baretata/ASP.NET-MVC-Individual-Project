@@ -1,4 +1,4 @@
-## Recruit Yourself Application
+# Recruit Yourself Application
 
 The application is for people who want to volunteer in different spheres where help is needed.They can join events or organizator foundations which raise charity or organize charity events.
 
@@ -45,10 +45,6 @@ Helping others is essential in our nature and as Gandhi said "The best way to fi
 `Organizations` to `Events`: 1 to many
 
 ### MVC Controllers
-`AccountController`
-
-`ManagerController`
-
 `BaseController` - all controllers inherit BaseController.Holds main properties for all controllers (Mapper, Cacher).
 
 `HomeController` - provides the newest articles and events and cache them for 30 minutes.
@@ -57,15 +53,23 @@ Helping others is essential in our nature and as Gandhi said "The best way to fi
 
 ##### Admin Area
 
-`AllCategoriesController` - provide CRUD operations over categories via grid (Kendo UI)
+`AllCategoriesController` - provides CRUD operations over categories via grid (Kendo UI)
 
-`AllVolunteersController` - provide CRUD operations over volunteer users via grid (Kendo UI)
+`AllVolunteersController` - provides CRUD operations over volunteer users via grid (Kendo UI)
 
-`AllOrganizationsController` - provide CRUD operations over organization users via grid (Kendo UI)
+`AllOrganizationsController` - provides CRUD operations over organization users via grid (Kendo UI)
 
 ##### Article Area
 
+`AllArticlesController` - provides listed all articles and article by given id.
+
+`AddArticleController` - hold logic for creating new article.
+
 ##### Event Area
+
+`AllEventsController` - provides listed all articles and article by given id.
+
+`AddEventController` - hold logic for creating new event.
 
 ### Screenshots
 ##### Home Page
