@@ -1,4 +1,4 @@
-![alt tag](http://url/to/img.png)# Recruit Yourself Application
+## Recruit Yourself Application
 
 The application is for people who want to volunteer in different spheres where help is needed.They can join events or organizator foundations which raise charity or organize charity events.
 
