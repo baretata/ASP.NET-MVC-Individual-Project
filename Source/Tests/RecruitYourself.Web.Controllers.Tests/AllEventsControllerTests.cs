@@ -54,9 +54,9 @@
                 .AndNoModelErrors();
         }
 
-        //[Test]
-        //public void EventIndexPageShouldReturnTheCorrectViewWithCorrectViewModel()
-        //{
+        // [Test]
+        // public void EventIndexPageShouldReturnTheCorrectViewWithCorrectViewModel()
+        // {
         //    var controller = new AllEventsController(this.eventsServiceMock.Object);
         //    controller.WithCallTo(x => x.Index(null, 1))
         //       .ShouldRenderView("Index")
@@ -66,6 +66,6 @@
         //               Assert.AreNotEqual(null, viewModel.Events);
         //           })
         //        .AndNoModelErrors();
-        //}
+        // }
     }
 }

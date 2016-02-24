@@ -39,6 +39,7 @@
                     UserName = "admin",
                     Description = "Administrator of the application.",
                     CreatedOn = DateTime.UtcNow,
+                    Image = "http://cdn4.goabroad.com/images/a/top/volunteering-wildlife-surveying-1421808950.jpg"
                 };
 
                 manager.Create(user, "admin123");
@@ -69,7 +70,7 @@
                 UserName = "organ",
                 Address = "Sofia, Rakovski 20",
                 Description = "Organization vision and mission description",
-                Image = "http://www.donornetworkwest.org/wp-content/uploads/2015/03/Volunteer.png"
+                Image = "http://www.neazoichurch.org/wp-content/uploads/2013/03/Volunteer.jpg"
             };
 
             context.Organizations.Add(organization);
@@ -81,7 +82,7 @@
                 UserName = "pesho",
                 Age = (short)randomGenerator.Next(10, 50),
                 Description = "Users dont need description",
-                Image = "http://www.resolve.org/assets/images/volunteer-image.jpg"
+                Image = "http://www.run2health.com/wp-content/uploads/2014/01/volunteers.jpg"
             };
 
             context.Users.Add(volunteer);

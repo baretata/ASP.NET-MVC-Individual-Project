@@ -45,9 +45,7 @@
 
         public IQueryable<Event> GetNewestEvents(int count)
         {
-            return this.events.All()
-                .Where(x => x.StartTime > DateTime.UtcNow)
-                .OrderBy(x => x.StartTime);
+            return this.events.All().OrderByDescending(x => x.CreatedOn).Take(count);
         }
 
         public IQueryable<Event> SearchBy(string searchQuery)

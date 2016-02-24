@@ -34,3 +34,7 @@ textarea {
 span.k-datetimepicker {
     width: 85%;
 }
+
+.event-title {
+    margin-left: 450px;
+}

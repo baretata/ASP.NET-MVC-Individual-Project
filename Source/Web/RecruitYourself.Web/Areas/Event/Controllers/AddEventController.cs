@@ -52,8 +52,6 @@
             }
 
             model.Categories = this.GetCategories();
-            //model.InputModel.StartTime = null;
-            //model.InputModel.EndTime = null;
 
             return this.View(model);
         }
