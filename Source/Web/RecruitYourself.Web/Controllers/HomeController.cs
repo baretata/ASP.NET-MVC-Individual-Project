@@ -3,40 +3,30 @@
     using System.Linq;
     using System.Web.Mvc;
 
-    using Infrastructure.Mapping;
-
-    using Services.Data.Contracts;
-    using ViewModels.Home;
+    using RecruitYourself.Services.Data.Contracts;
+    using RecruitYourself.Web.Infrastructure.Mapping;
+    using RecruitYourself.Web.ViewModels.Home;
 
     public class HomeController : BaseController
     {
         private readonly IEventsService events;
-        private readonly ICategoriesService categories;
 
-        public HomeController(
-            IEventsService events,
-            ICategoriesService jokeCategories)
+        public HomeController(IEventsService events)
         {
             this.events = events;
-            this.categories = jokeCategories;
         }
 
         public ActionResult Index()
         {
-            var events = this.events.GetNewestEvents(3).To<EventViewModel>().ToList();
+            var events = this.events.GetNewestEvents(3).To<HomeEventViewModel>().ToList();
 
             // var categories =
             //    this.Cache.Get(
             //        "categories",
             //        () => this.categories.GetAll().To<CategoryViewModel>().ToList(),
             //        30 * 60);
-            var viewModel = new IndexViewModel
-            {
-                Events = events,
-                // Categories = categories
-            };
 
-            return this.View(viewModel);
+            return this.View(events);
         }
     }
 }
