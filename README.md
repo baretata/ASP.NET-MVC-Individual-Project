@@ -6,11 +6,13 @@ Helping others is essential in our nature and as Gandhi said "The best way to fi
 
 ### Types of users
 
-1.Admin: has access to CRUD operations over categories, volunteers and organizations
+1.Admin (Admin role): has access to CRUD operations over categories, volunteers and organizations
 
-2.Registered users: They can create events or join events.
+2.Registered users:
+-  Volunteer (Volunteer role) - They can create events or join events.Can join organizations.
+-  Organization (Organization role) - Also can create and join events.Can create articles.
 
-3.Visitors /without login/: they can only read events and articles information.
+3.Visitors (not logged in): they can only read events and articles information.
 
 
 ### Database
