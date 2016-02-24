@@ -3,37 +3,44 @@
     using System.Linq;
     using System.Web.Mvc;
 
-    using Infrastructure.Mapping;
-
-    using Services.Data.Contracts;
-    using ViewModels.Home;
+    using RecruitYourself.Common.Constants;
+    using RecruitYourself.Services.Data.Contracts;
+    using RecruitYourself.Web.Infrastructure.Mapping;
+    using RecruitYourself.Web.ViewModels.Home;
 
     public class HomeController : BaseController
     {
         private readonly IEventsService events;
-        private readonly ICategoriesService categories;
+        private readonly IArticlesService articles;
 
-        public HomeController(
-            IEventsService events,
-            ICategoriesService jokeCategories)
+        public HomeController(IEventsService events, IArticlesService articles)
         {
             this.events = events;
-            this.categories = jokeCategories;
+            this.articles = articles;
         }
 
         public ActionResult Index()
         {
-            var events = this.events.GetNewestEvents(3).To<EventViewModel>().ToList();
+            var newestEvents = this.Cache.Get(
+                "newestEvents",
+                () => this.events
+                    .GetNewestEvents(WebControllerConstants.HomePageNewestEventsCount)
+                    .To<EventIndexViewModel>()
+                    .ToList(),
+                30 * 60);
 
-            // var categories =
-            //    this.Cache.Get(
-            //        "categories",
-            //        () => this.categories.GetAll().To<CategoryViewModel>().ToList(),
-            //        30 * 60);
+            var newestArticles = this.Cache.Get(
+                "newestArticles",
+                () => this.articles
+                    .GetNewestEvents(WebControllerConstants.HomePageNewestArticlesCount)
+                    .To<ArticleIndexViewModel>()
+                    .ToList(),
+                30 * 60);
+
             var viewModel = new IndexViewModel
             {
-                Events = events,
-                // Categories = categories
+                Events = newestEvents,
+                Articles = newestArticles
             };
 
             return this.View(viewModel);

@@ -42,6 +42,11 @@
             return this.articles.All().Skip(skip).Take(take);
         }
 
+        public IQueryable<Article> GetNewestEvents(int count)
+        {
+            return this.articles.All().OrderByDescending(x => x.CreatedOn).Take(count);
+        }
+
         public IQueryable<Article> SearchBy(string searchQuery)
         {
             return this.articles
