@@ -10,7 +10,7 @@
     public class ArticlesRouteTests
     {
         [Test]
-        public void ByIdRouteTest()
+        public void ArticleByIdShouldMapCorrectlyRouteTest()
         {
             const string Url = "/Article/AllArticles/ById/MS4xMjMxMjMxMzEyMw==";
             var routeCollection = new RouteCollection();

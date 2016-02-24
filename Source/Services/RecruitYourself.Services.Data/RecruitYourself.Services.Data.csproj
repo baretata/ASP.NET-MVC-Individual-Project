@@ -65,12 +65,10 @@
     <Compile Include="Contracts\ICategoriesService.cs" />
     <Compile Include="Contracts\IEventsService.cs" />
     <Compile Include="Contracts\IOrganizationsService.cs" />
-    <Compile Include="Contracts\IUsersService.cs" />
     <Compile Include="Contracts\IVolunteersService.cs" />
     <Compile Include="OrganizationsService.cs" />
     <Compile Include="EventsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UsersService.cs" />
     <Compile Include="VolunteersService.cs" />
   </ItemGroup>
   <ItemGroup>

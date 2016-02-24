@@ -10,7 +10,7 @@
     public class EventsRouteTests
     {
         [Test]
-        public void ByIdRouteTest()
+        public void EventByIdShouldMapCorrectlyRouteTest()
         {
             const string Url = "/Event/AllEvents/ById/MS4xMjMxMjMxMzEyMw==";
             var routeCollection = new RouteCollection();

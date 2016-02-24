@@ -83,8 +83,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AllArticlesControllerTests.cs" />
-    <Compile Include="AllEventsControllerTests.cs" />
+    <Compile Include="ArticlesControllerTests.cs" />
+    <Compile Include="EventsControllerTests.cs" />
+    <Compile Include="HomeControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

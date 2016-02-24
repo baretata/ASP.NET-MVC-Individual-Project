@@ -14,7 +14,7 @@
     using TestStack.FluentMVCTesting;
 
     [TestFixture]
-    public class AllArticlesControllerTests
+    public class ArticlesControllerTests
     {
         private const string ArticleName = "Article name";
         private const string ArticleContent = "Article's content";

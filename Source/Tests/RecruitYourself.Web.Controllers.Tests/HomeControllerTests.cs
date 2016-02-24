@@ -10,18 +10,19 @@
     using RecruitYourself.Data.Models;
     using RecruitYourself.Services.Data.Contracts;
     using RecruitYourself.Web.Areas.Event.Controllers;
-    using RecruitYourself.Web.Areas.Event.ViewModels;
     using RecruitYourself.Web.Infrastructure.Mapping;
+    using RecruitYourself.Web.ViewModels.Home;
 
     using TestStack.FluentMVCTesting;
 
     [TestFixture]
-    public class AllEventsControllerTests
+    public class HomeControllerTests
     {
         private const string EventName = "Event name";
         private const string EventDescription = "Event's content";
 
         private Mock<IEventsService> eventsServiceMock;
+        private Mock<IArticlesService> articlesServiceMock;
 
         [OneTimeSetUp]
         public void Init()
@@ -32,40 +33,25 @@
             var eventData = new Event { Name = EventName, Description = EventDescription, StartTime = DateTime.UtcNow, EndTime = DateTime.UtcNow.AddDays(2), CategoryId = 1 };
             var eventsMock = new List<Event>() { eventData }.AsQueryable();
             this.eventsServiceMock = new Mock<IEventsService>();
-
-            this.eventsServiceMock.Setup(x => x.GetById(It.IsAny<string>()))
-               .Returns(eventData);
+            this.articlesServiceMock = new Mock<IArticlesService>();
 
             this.eventsServiceMock.Setup(x => x.GetAll())
                 .Returns(eventsMock);
         }
 
         [Test]
-        public void EventByIdShouldReturnTheCorrectViewWithCorrectViewModel()
+        public void EventCreateShouldReturnTheCorrectViewWithCorrectViewModel()
         {
-            var controller = new AllEventsController(this.eventsServiceMock.Object);
-            controller.WithCallTo(x => x.ById("id"))
-               .ShouldRenderView("ById")
-               .WithModel<EventViewModel>(
+            var controller = new HomeController(this.eventsServiceMock.Object, this.articlesServiceMock.Object);
+            controller.WithCallTo(x => x.Index())
+               .ShouldRenderView("Index")
+               .WithModel<IndexViewModel>(
                    viewModel =>
                    {
-                       Assert.AreEqual(EventName, viewModel.Name);
+                       Assert.AreNotEqual(null, viewModel.Articles);
+                       Assert.AreNotEqual(null, viewModel.Events);
                    })
                 .AndNoModelErrors();
         }
-
-        // [Test]
-        // public void EventIndexPageShouldReturnTheCorrectViewWithCorrectViewModel()
-        // {
-        //    var controller = new AllEventsController(this.eventsServiceMock.Object);
-        //    controller.WithCallTo(x => x.Index(null, 1))
-        //       .ShouldRenderView("Index")
-        //       .WithModel<EventListViewModel>(
-        //           viewModel =>
-        //           {
-        //               Assert.AreNotEqual(null, viewModel.Events);
-        //           })
-        //        .AndNoModelErrors();
-        // }
     }
 }
