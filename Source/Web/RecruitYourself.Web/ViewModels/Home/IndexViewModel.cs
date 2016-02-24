@@ -2,8 +2,13 @@
 {
     using System.Collections.Generic;
 
-    public class IndexViewModel
+    using RecruitYourself.Data.Models;
+    using RecruitYourself.Web.Infrastructure.Mapping;
+
+    public class IndexViewModel : IMapFrom<Event>
     {
-        public IEnumerable<HomeEventViewModel> Events { get; set; }
+        public IList<EventIndexViewModel> Events { get; set; }
+
+        public IEnumerable<ArticleIndexViewModel> Articles { get; set; }
     }
 }
