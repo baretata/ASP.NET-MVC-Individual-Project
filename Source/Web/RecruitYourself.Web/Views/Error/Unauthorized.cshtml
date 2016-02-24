@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Unauthorized";
+}
+
+<div class="row">
+    <div class="box text-center">
+        <h1 class="text-danger">Unauthorized.</h1>
+        <h2 class="text-danger">You are not authorized to view that page.</h2>
+
+        @if (!this.Request.IsAuthenticated)
+        {
+            @Html.ActionLink("Login", "Login", "Account", new { area = string.Empty }, new { @class = "btn btn-default btn-lg" })
+            @Html.ActionLink("Register", "Register", "Account", new { area = string.Empty }, new { @class = "btn btn-default btn-lg" })
+        }
+    </div>
+</div>
