@@ -2,6 +2,6 @@
 {
     public class WebControllerConstants
     {
-        public const int ArticlesPerPage = 5;
+        public const int ItemsPerPage = 5;
     }
 }

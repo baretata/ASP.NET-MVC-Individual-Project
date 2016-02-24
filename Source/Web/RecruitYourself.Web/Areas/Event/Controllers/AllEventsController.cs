@@ -1,4 +1,4 @@
-﻿namespace RecruitYourself.Web.Areas.Article.Controllers
+﻿namespace RecruitYourself.Web.Areas.Event.Controllers
 {
     using System;
     using System.Collections.Generic;
@@ -8,56 +8,56 @@
 
     using RecruitYourself.Common.Constants;
     using RecruitYourself.Services.Data.Contracts;
-    using RecruitYourself.Web.Areas.Article.ViewModels;
+    using RecruitYourself.Web.Areas.Event.ViewModels;
     using RecruitYourself.Web.Controllers;
     using RecruitYourself.Web.Infrastructure.Mapping;
 
-    public class AllArticlesController : BaseController
+    public class AllEventsController : BaseController
     {
-        private readonly IArticlesService articles;
+        private readonly IEventsService events;
 
-        public AllArticlesController(IArticlesService articles)
+        public AllEventsController(IEventsService events)
         {
-            this.articles = articles;
+            this.events = events;
         }
 
         [HttpGet]
         public ActionResult Index(string searchQuery, int id = 1)
         {
-            IList<ArticleViewModel> articleModels;
+            IList<EventViewModel> eventModels;
             int page;
 
             if (!string.IsNullOrEmpty(searchQuery))
             {
                 page = 1;
 
-                articleModels = this.articles
+                eventModels = this.events
                     .SearchBy(searchQuery)
-                    .To<ArticleViewModel>()
+                    .To<EventViewModel>()
                     .ToList();
             }
             else
             {
                 page = id;
 
-                articleModels = this.articles
+                eventModels = this.events
                    .GetAll()
-                   .To<ArticleViewModel>()
+                   .To<EventViewModel>()
                    .ToList();
             }
 
-            int allArticlesCount = articleModels.Count;
-            int totalPages = (int)Math.Ceiling(allArticlesCount / (decimal)WebControllerConstants.ItemsPerPage);
-            int skippedArticles = (page - 1) * WebControllerConstants.ItemsPerPage;
-            var takenArticles = articleModels
-                .Skip(skippedArticles)
+            int allEventsCount = eventModels.Count;
+            int totalPages = (int)Math.Ceiling(allEventsCount / (decimal)WebControllerConstants.ItemsPerPage);
+            int skippedEvents = (page - 1) * WebControllerConstants.ItemsPerPage;
+            var takenEvents = eventModels
+                .Skip(skippedEvents)
                 .Take(WebControllerConstants.ItemsPerPage);
 
-            var viewModel = new ArticleListViewModel
+            var viewModel = new EventListViewModel
             {
                 CurrentPage = page,
                 TotalPages = totalPages,
-                Articles = takenArticles
+                Events = takenEvents
             };
 
             return this.View(viewModel);
@@ -66,8 +66,8 @@
         [HttpGet]
         public ActionResult ById(string id)
         {
-            var article = this.articles.GetById(id);
-            var viewModel = this.Mapper.Map<ArticleViewModel>(article);
+            var currentEvent = this.events.GetById(id);
+            var viewModel = this.Mapper.Map<EventViewModel>(currentEvent);
 
             return this.View(viewModel);
         }

@@ -220,6 +220,14 @@
     <Compile Include="Areas\Article\ViewModels\ArticleInputModel.cs" />
     <Compile Include="Areas\Article\ViewModels\ArticleListViewModel.cs" />
     <Compile Include="Areas\Article\ViewModels\ArticleViewModel.cs" />
+    <Compile Include="Areas\Event\Controllers\AddEventController.cs" />
+    <Compile Include="Areas\Event\Controllers\AllEventsController.cs" />
+    <Compile Include="Areas\Event\EventAreaRegistration.cs" />
+    <Compile Include="Areas\Event\ViewModels\CategoryViewModel.cs" />
+    <Compile Include="Areas\Event\ViewModels\CreateViewModel.cs" />
+    <Compile Include="Areas\Event\ViewModels\EventInputModel.cs" />
+    <Compile Include="Areas\Event\ViewModels\EventListViewModel.cs" />
+    <Compile Include="Areas\Event\ViewModels\EventViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -362,6 +370,11 @@
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Administration\Views\AllOrganizations\Index.cshtml" />
     <Content Include="Areas\Administration\Views\AllCategories\Index.cshtml" />
+    <Content Include="Areas\Event\Views\web.config" />
+    <Content Include="Areas\Event\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Event\Views\AllEvents\ById.cshtml" />
+    <Content Include="Areas\Event\Views\AllEvents\Index.cshtml" />
+    <Content Include="Areas\Event\Views\AddEvent\Create.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -414,11 +427,13 @@
     <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\OrganizationViewModel.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\CategoryViewModel.cshtml" />
+    <Content Include="Views\Shared\_EventDropdownPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Views\Shared\" />
     <Folder Include="Areas\Article\Views\Shared\" />
+    <Folder Include="Areas\Event\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

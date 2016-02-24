@@ -26,6 +26,7 @@
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(ArticleInputModel model)
         {
             if (this.ModelState.IsValid)
@@ -36,6 +37,7 @@
                 article.CreatorId = userId;
 
                 this.articles.Add(article);
+
                 return this.RedirectToAction("Index", "AllArticles");
             }
 

@@ -1,7 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace RecruitYourself.Web.Areas.Administration.ViewModels
+﻿namespace RecruitYourself.Web.Areas.Administration.ViewModels
 {
+    using System.ComponentModel.DataAnnotations;
+
     public class BaseUserModel : BaseAdministrationModel
     {
         [Key]
@@ -12,6 +12,5 @@ namespace RecruitYourself.Web.Areas.Administration.ViewModels
         public string Email { get; set; }
 
         public string Description { get; set; }
-
     }
 }

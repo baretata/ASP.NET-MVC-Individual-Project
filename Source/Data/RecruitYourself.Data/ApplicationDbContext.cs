@@ -39,13 +39,18 @@
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            // modelBuilder.Entity<Event>()
-            //    .HasRequired(a => a.Creator)
-            //    .WithMany(u => u.)
-            //    .HasForeignKey(a => a.CreatorId)
-            //    .WillCascadeOnDelete(false);
             modelBuilder.Entity<Volunteer>().ToTable("Volunteers");
             modelBuilder.Entity<Organization>().ToTable("Organizations");
+
+            modelBuilder.Entity<Volunteer>()
+                .HasMany<Event>(s => s.Volunteerships)
+                .WithMany(c => c.Participants)
+                .Map(c =>
+                {
+                    c.MapLeftKey("VolunteerRefId");
+                    c.MapRightKey("EventRefId");
+                    c.ToTable("VolunteerEvent");
+                });
 
             modelBuilder.Entity<IdentityUserLogin>().HasKey<string>(l => l.UserId);
             modelBuilder.Entity<IdentityRole>().HasKey<string>(r => r.Id);

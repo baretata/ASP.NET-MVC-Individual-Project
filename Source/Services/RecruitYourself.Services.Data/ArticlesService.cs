@@ -26,7 +26,7 @@
 
         public IQueryable<Article> GetAll()
         {
-            return this.articles.All().OrderBy(x => x.CreatedOn);
+            return this.articles.All().OrderByDescending(x => x.CreatedOn);
         }
 
         public Article GetById(string id)
@@ -47,7 +47,7 @@
             return this.articles
                 .All()
                 .Where(a => a.Name.Contains(searchQuery) || a.Content.Contains(searchQuery))
-                .OrderBy(x => x.CreatedOn);
+                .OrderByDescending(x => x.CreatedOn);
         }
     }
 }

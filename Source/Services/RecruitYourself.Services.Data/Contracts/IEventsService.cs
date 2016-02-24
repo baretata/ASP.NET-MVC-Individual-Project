@@ -6,8 +6,16 @@
 
     public interface IEventsService
     {
-        IQueryable<Event> GetRandomEvents(int count);
+        IQueryable<Event> GetAll();
 
         Event GetById(string id);
+
+        IQueryable<Event> SearchBy(string searchQuery);
+
+        void Add(Event model);
+
+        IQueryable<Event> GetByPage(int page, int skip, int take);
+
+        IQueryable<Event> GetNewestEvents(int count);
     }
 }
