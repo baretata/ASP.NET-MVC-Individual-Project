@@ -230,6 +230,7 @@
     <Compile Include="Areas\Event\ViewModels\EventViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="App_Start\GlimpseSecurityPolicy.cs" />
@@ -327,12 +328,6 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="img\bg.jpg" />
-    <Content Include="img\bg1.jpg" />
-    <Content Include="img\intro-pic.jpg" />
-    <Content Include="img\organization-default-image.jpg" />
-    <Content Include="img\slide-1.jpg" />
-    <Content Include="img\slide-2.jpg" />
-    <Content Include="img\slide-3.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -429,6 +424,8 @@
     <Content Include="Views\Shared\EditorTemplates\OrganizationViewModel.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\CategoryViewModel.cshtml" />
     <Content Include="Views\Shared\_EventDropdownPartial.cshtml" />
+    <Content Include="Views\Error\Unauthorized.cshtml" />
+    <Content Include="Views\Error\PageNotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

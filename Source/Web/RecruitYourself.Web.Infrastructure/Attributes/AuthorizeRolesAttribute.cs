@@ -2,7 +2,7 @@
 {
     using System.Web.Mvc;
 
-    public class AuthorizeRolesAttribute : AuthorizeAttribute
+    public class AuthorizeRolesAttribute : CustomAuthorize
     {
         public AuthorizeRolesAttribute(params string[] roles)
             : base()

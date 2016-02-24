@@ -3,16 +3,16 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
-
     using Microsoft.AspNet.Identity;
 
     using RecruitYourself.Data.Models;
     using RecruitYourself.Services.Data.Contracts;
     using RecruitYourself.Web.Areas.Event.ViewModels;
     using RecruitYourself.Web.Controllers;
+    using RecruitYourself.Web.Infrastructure.Attributes;
     using RecruitYourself.Web.Infrastructure.Mapping;
 
-    [Authorize]
+    [CustomAuthorize]
     public class AddEventController : BaseController
     {
         private IEventsService events;

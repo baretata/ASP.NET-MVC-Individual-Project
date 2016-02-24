@@ -22,7 +22,7 @@
         public ActionResult Index()
         {
             var newestEvents = this.Cache.Get(
-                "newestEvents",
+                WebControllerConstants.NewestEventsCacheKey,
                 () => this.events
                     .GetNewestEvents(WebControllerConstants.HomePageNewestEventsCount)
                     .To<EventIndexViewModel>()
@@ -30,7 +30,7 @@
                 30 * 60);
 
             var newestArticles = this.Cache.Get(
-                "newestArticles",
+                WebControllerConstants.NewestArticlesCacheKey,
                 () => this.articles
                     .GetNewestEvents(WebControllerConstants.HomePageNewestArticlesCount)
                     .To<ArticleIndexViewModel>()
