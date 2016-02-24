@@ -16,18 +16,30 @@ Helping others is essential in our nature and as Gandhi said "The best way to fi
 ### Database
 
 ##### Models:
+
 User
+
 Volunteer (inherit User) 
+
 Organization (inherit User)
+
 Category (for events)
+
 Event
+
 Article
 
 
 ##### Relations:
+
 Volunteer inherit User
+
 Organization inherit User
+
 Users to Events: many to many
+
 Categories to Events: 1 to many
+
 Organizations to Articles: 1 to many
+
 Organizations to Events: 1 to many
