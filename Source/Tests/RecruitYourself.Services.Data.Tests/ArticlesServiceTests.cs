@@ -12,28 +12,27 @@
     [TestFixture]
     public class ArticlesServiceTests
     {
-        private IQueryable<Article> mockedArticles;
-        private Mock<IArticlesService> mockedArticlesData;
+        private Mock<IArticlesService> articlesServiceMock;
 
         [OneTimeSetUp]
         public void Init()
         {
-            mockedArticles = new List<Article>().AsQueryable();
-            mockedArticlesData = new Mock<IArticlesService>();
+            var ariclesMock = new List<Article>().AsQueryable();
+            articlesServiceMock = new Mock<IArticlesService>();
             
-            mockedArticlesData
+            articlesServiceMock
                 .Setup(s => s.GetAll())
-                .Returns(mockedArticles);
+                .Returns(ariclesMock);
 
-            mockedArticlesData
+            articlesServiceMock
                 .Setup(s => s.GetById("1"))
                 .Returns(new Article { Id = 1 });
 
-            mockedArticlesData
+            articlesServiceMock
                 .Setup(s => (s.GetByPage(1, 0, 10)))
-                .Returns(mockedArticles);
+                .Returns(ariclesMock);
 
-            mockedArticlesData
+            articlesServiceMock
                 .Setup(s => s.Add(It.IsAny<Article>()))
                 .Verifiable();
         }
@@ -41,28 +40,28 @@
         [Test]
         public void GetAllArticlesShouldNotReturnNull()
         {
-            IQueryable<Article> articles = mockedArticlesData.Object.GetAll();
+            IQueryable<Article> articles = articlesServiceMock.Object.GetAll();
             Assert.AreNotEqual(null, articles);
         }
 
         [Test]
         public void GetByIdArticleIdShouldNotReturnNull()
         {
-            Article article = mockedArticlesData.Object.GetById("1");
+            Article article = articlesServiceMock.Object.GetById("1");
             Assert.AreEqual(1, article.Id);
         }
 
         [Test]
         public void AddArticleShouldBeCalled()
         {
-            mockedArticlesData.Object.Add(new Article());
-            mockedArticlesData.Verify(s => s.Add(It.IsAny<Article>()));
+            articlesServiceMock.Object.Add(new Article());
+            articlesServiceMock.Verify(s => s.Add(It.IsAny<Article>()));
         }
 
         [Test]
         public void GetByPageArticlesDefaultValueShouldReturnZeroIfNoArticlesExist()
         {
-            var count = mockedArticlesData.Object.GetByPage(1,0,10).Count();
+            var count = articlesServiceMock.Object.GetByPage(1,0,10).Count();
             Assert.AreEqual(count, 0);
         }
     }
